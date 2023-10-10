@@ -1,4 +1,4 @@
-import './CustomButtons.css'
+import styles from '../styles/CustomButtons.css'
 import { useState } from 'react'
 
 function CustomButtons() {
@@ -14,7 +14,6 @@ function CustomButtons() {
             setContentActive(true)
             setCustomiseActive(false)   
         }
-
     }
 
     const handleCustomiseClick = () => {

@@ -1,0 +1,47 @@
+.SaveLoadClearButtons {
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0px 5px 50px -11px rgba(0,0,0,0.2);
+}
+
+.SaveLoadClearButtons button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 10px;
+    background-color: transparent;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.SaveLoadClearButtons button:hover {
+    scale: 1.1;
+    transition: 0.3s;
+}
+
+.SaveLoadClearButtons img {
+    width: 20px;
+    margin-right: 10px;
+}
+
+.SaveLoadClearButtons p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    margin: 0;
+}
+
+.clear {
+    color: #B91C1C;
+}
+
+.SaveLoadClearButtons .load {
+    background-color: rgb(235, 235, 235);
+}
+

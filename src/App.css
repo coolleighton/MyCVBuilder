@@ -2,9 +2,9 @@
     width: 80%;
     margin: 30px auto 0;
     display: grid;
-    grid-template-columns: 1fr 5fr 4fr;
+    grid-template-columns: 0.8fr 5fr 4fr;
     grid-template-rows: repeat(6, 1fr);
-    grid-column-gap: 0px;
+    grid-column-gap: 30px;
     grid-row-gap: 0px;
     border: 2px solid transparent;
 }
