@@ -4,7 +4,7 @@ import CustomButtons from './components/CustomButtons'
 function App() {
 
   return (
-    <div>
+    <div className='mainDiv'>
       <CustomButtons></CustomButtons>
     </div>
   )
