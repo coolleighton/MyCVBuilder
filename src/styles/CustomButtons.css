@@ -4,6 +4,7 @@
     padding: 15px;
     background-color: white;
     border-radius: 10px;
+    max-height: 10rem;
 }
 
 .CustomButtons button {

@@ -1,6 +1,7 @@
 import './App.css'
 import CustomButtons from './components/CustomButtons'
 import RenderSaveLoadClearButtons from "./components/SaveLoadClearButtons.jsx"
+import ContentSection from './components/ContentSection'
 
 function App() {
 
@@ -9,6 +10,7 @@ function App() {
       <CustomButtons></CustomButtons>
       <div>
         <RenderSaveLoadClearButtons></RenderSaveLoadClearButtons>
+        <ContentSection></ContentSection>
       </div>
     </div>
 
