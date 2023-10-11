@@ -1,46 +1,42 @@
 /* Personal Details --------------------------------------------- */
 
 .PersonalDetails {
-    margin-top: 30px;
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    background-color: white;
-    border-radius: 10px;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
 }
 
 .PersonalDetails h1 {
-    margin: 5px 0 20px 0;
-    font-size: 25px;
-    font-weight: 600;
+  margin: 5px 0 20px 0;
+  font-size: 25px;
+  font-weight: 600;
 }
 
 .PersonalDetails form {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .PersonalDetails label {
-    font-size: 16px;
-    font-weight: 500;
-    margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 10px;
 }
 
 .PersonalDetails input {
-    background-color: #F3F4F6;
-    margin-bottom: 15px;
-    padding: 10px;
-    border: none;
-    outline: 2px solid #F3F4F6;
-    border-radius: 10px;
+  background-color: #f3f4f6;
+  margin-bottom: 15px;
+  padding: 10px;
+  border: none;
+  outline: 2px solid #f3f4f6;
+  border-radius: 10px;
 }
 
 .PersonalDetails input:focus {
-    outline: 2px solid rgb(0, 140, 255);
-    box-shadow: 0px 0px 20px -8px rgba(0,140,255,1);
-    transition: 0.3s;
+  outline: 2px solid rgb(0, 140, 255);
+  box-shadow: 0px 0px 20px -8px rgba(0, 140, 255, 1);
+  transition: 0.3s;
 }
-
-
-
-
