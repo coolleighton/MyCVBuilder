@@ -1,0 +1,171 @@
+/* Skills Section --------------------------------------------------*/
+
+.SkillsSection {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 30px;
+    background-color: white;
+    border-radius: 10px;
+    box-sizing: border-box;
+  }
+  
+  .SkillsHeader {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    padding: 7.5px 0 7.5px;
+  }
+  
+  .SkillsHeader h1 {
+    margin: 0 0 0 10px;
+    font-size: 20px;
+    font-weight: 600;
+  }
+  
+  .SkillsHeader div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .SkillsHeader img {
+    width: 30px;
+    height: 30px;
+    transition: 1s;
+  }
+  
+  .addSkills {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    padding: 10px;
+    border: 4px solid #f3f4f6;
+    border-radius: 40px;
+    margin: 20px auto 0;
+    cursor: pointer;
+  }
+  
+  .addSkills:hover {
+    scale: 1.1;
+    transition: 0.3s;
+  }
+  
+  .addSkills img {
+    width: 15px;
+    margin-right: 5px;
+  }
+  
+  .addSkills p {
+    margin: 0;
+    font-weight: 600;
+    font-size: 15px;
+  }
+  
+  .SkillsHeader:hover .HeaderTitle {
+    scale: 1.1;
+    transition: 0.3s;
+  }
+  
+  .SkillsHeader:hover .DropDownImg {
+    scale: 1.2;
+    transition: 0.3s;
+  }
+  
+  .skillList {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .skillListItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .skillListItem h2 {
+    font-size: 18px;
+    font-weight: 500;
+  }
+  
+  .skillListItem img {
+    width: 25px;
+  }
+  
+  .skillListItem:hover .skillListItemImg {
+    scale: 1.3;
+    transition: 0.3s;
+  }
+  
+  .skillListItem:hover .skillListItemName {
+    scale: 1.1;
+    transition: 0.3s;
+  }
+  
+  .Seperator {
+    border: 2px solid #f3f4f6;
+    width: calc(100% + 60px);
+    transform: translateX(-33px);
+  }
+  
+  /*  Form --------------------------------------------- */
+  
+  .SkillsForm {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 10px;
+  }
+  
+  .SkillsForm form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .SkillsForm label {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+  
+  .SkillsForm input,
+  .SkillsForm textarea {
+    box-sizing: border-box;
+    background-color: #f3f4f6;
+    margin-bottom: 15px;
+    border: none;
+    outline: 2px solid #f3f4f6;
+    border-radius: 10px;
+    padding: 10px;
+    width: 100%;
+    font-family: "Roboto", sans-serif;
+    resize: none;
+  }
+  
+  .SkillsForm input:focus {
+    outline: 2px solid rgb(0, 140, 255);
+    box-shadow: 0px 0px 20px -8px rgba(0, 140, 255, 1);
+    transition: 0.3s;
+  }
+  
+  .SkillsDates {
+    display: flex;
+  }
+  
+  .startDateDiv {
+    padding-right: 30px;
+  }
+  
+  .SkillsDates div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+  }
+  

@@ -4,6 +4,7 @@ import RenderSaveLoadClearButtons from "./components/SaveLoadClearButtons.jsx";
 import ContentSection from "./components/ContentSection";
 import EducationSection from "./components/EducationSection";
 import ExperienceSection from "./components/ExperienceSection";
+import SkillsSection from "./components/SkillsSection";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <div>
         <RenderSaveLoadClearButtons></RenderSaveLoadClearButtons>
         <ContentSection></ContentSection>
+        <SkillsSection></SkillsSection>
         <EducationSection></EducationSection>
         <ExperienceSection></ExperienceSection>
       </div>

@@ -30,6 +30,13 @@ function ContentSection() {
             type="textArea"
             placeholder="Enter your home address"
           ></input>
+          <label htmlFor="Profile">Profile description</label>
+          <textarea
+            id="description"
+            rows="4"
+            cols="50"
+            placeholder="Enter a description about yourself"
+          ></textarea>
         </form>
       </div>
     </>
