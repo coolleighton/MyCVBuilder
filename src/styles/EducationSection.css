@@ -34,6 +34,7 @@
 .EducationHeader img {
     width: 30px;
     height: 30px;
+    transition: 1s;
 }
 
 .addEducation {
@@ -94,6 +95,7 @@
 
 .UniversityListItem img {
     width: 25px;
+    transition: 1s;
 }
 
 .UniversityListItem:hover .UniversityListItemImg {
@@ -162,6 +164,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    width: 100%;
 }
 
 

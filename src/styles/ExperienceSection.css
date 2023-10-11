@@ -34,6 +34,7 @@
 .ExperienceHeader img {
     width: 30px;
     height: 30px;
+    transition: 1s;
 }
 
 .addExperience {
@@ -75,33 +76,33 @@
     transition: 0.3s;
 }
 
-.UniversityList {
+.JobList {
     list-style: none;
     padding-left: 0;
 }
 
-.UniversityListItem {
+.JobListItem {
     display: flex;
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
 }
 
-.UniversityListItem h2 {
+.JobListItem h2 {
     font-size: 18px;
     font-weight: 500;
 }
 
-.UniversityListItem img {
+.JobListItem img {
     width: 25px;
 }
 
-.UniversityListItem:hover .UniversityListItemImg {
+.JobListItem:hover .JobListItemImg {
     scale: 1.3;
     transition: 0.3s;
 }
 
-.UniversityListItem:hover .UniversityListItemName {
+.JobListItem:hover .JobListItemName {
     scale: 1.1;
     transition: 0.3s;
 }
@@ -165,11 +166,5 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    width: 100%;
 }
-
-
-
-
-
-
-

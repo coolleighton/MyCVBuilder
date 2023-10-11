@@ -19,6 +19,8 @@ function ExperienceSection() {
 
     const activeDisplay = "block"
     const inActiveDisplay = "none"
+    const activeRotation = "rotate(180deg)"
+    const inActiveRotation = "rotate(0deg)"
 
     const [ExperienceActive, setExperienceActive] = useState(true)
 
@@ -42,12 +44,15 @@ function ExperienceSection() {
                         <img src="./src/assets/experience-img.png"></img>
                         <h1>Experience</h1>
                     </div>
-                    <img className="DropDownImg" src="./src/assets/down-img.png"></img>
+                    <img 
+                        style={{ transform : ExperienceActive ? activeRotation : inActiveRotation}}
+                        className="DropDownImg" 
+                        src="./src/assets/down-img.png"></img>
                 </div>
 
                 <ul 
                     style={{ display : ExperienceActive ? activeDisplay : inActiveDisplay }} 
-                    className="UniversityList"
+                    className="JobList"
                 > 
 
                     {ExperienceArray.map((experienceItem) => {
@@ -72,11 +77,15 @@ function ExperienceSection() {
                                 <hr className="Seperator"></hr>
 
                                 <div
-                                    className="UniversityListItem"
+                                    className="JobListItem"
                                     onClick={handleItemClick}
                                     >
-                                    <h2 className="UniversityListItemName">{experienceItem.company}</h2>
-                                    <img className="UniversityListItemImg" src = "src/assets/down-img.png"></img>
+                                    <h2 className="JobListItemName">{experienceItem.company}</h2>
+                                    <img 
+                                        className="JobListItemImg" 
+                                        src = "src/assets/down-img.png"
+                                        style={{ transform : formActive ? activeRotation : inActiveRotation}}
+                                    ></img>
                                 </div>
 
                                 <div 

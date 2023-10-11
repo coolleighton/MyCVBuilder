@@ -26,6 +26,8 @@ function EducationSection() {
 
     const activeDisplay = "block"
     const inActiveDisplay = "none"
+    const activeRotation = "rotate(180deg)"
+    const inActiveRotation = "rotate(0deg)"
 
     const [EducationActive, setEducationActive] = useState(true)
 
@@ -51,7 +53,10 @@ function EducationSection() {
                         <img src="./src/assets/education-img.png"></img>
                         <h1>Education</h1>
                     </div>
-                    <img className="DropDownImg" src="./src/assets/down-img.png"></img>
+                    <img 
+                        style={{ transform : EducationActive ? activeRotation : inActiveRotation}}
+                        className="DropDownImg" 
+                        src="./src/assets/down-img.png"></img>
                 </div>
 
                 <ul 
@@ -85,7 +90,11 @@ function EducationSection() {
                                     onClick={handleItemClick}
                                     >
                                     <h2 className="UniversityListItemName">{educationItem.school}</h2>
-                                    <img className="UniversityListItemImg" src = "src/assets/down-img.png"></img>
+                                    <img 
+                                        className="UniversityListItemImg" 
+                                        src = "src/assets/down-img.png"
+                                        style={{ transform : formActive ? activeRotation : inActiveRotation}}
+                                    ></img>
                                 </div>
 
                                 <div 
