@@ -1,0 +1,39 @@
+.customizeColors {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.customizeColors h1 {
+  margin: 0;
+  font-size: 25px;
+}
+
+.customizeColors div {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+.customizeColors div p {
+  margin-right: 10px;
+}
+
+.colorPicker {
+  width: 40px;
+  height: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.colorPicker:hover {
+  scale: 1.1;
+  transition: 0.3s;
+}
+
+.colorPicker::-webkit-color-swatch-wrapper {
+  padding: 0;
+}

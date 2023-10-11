@@ -1,0 +1,91 @@
+.customizeLayout {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.customizeLayout h1 {
+  margin: 0 0 20px 0;
+  font-size: 25px;
+}
+
+.layoutsDiv {
+  display: flex;
+  justify-content: space-between;
+  width: 200px;
+}
+
+.layoutCont {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.layoutCont:hover {
+  scale: 1.1;
+  transition: 0.3s;
+}
+
+.layoutCont p {
+  margin: 5px;
+}
+
+.topLayout,
+.leftLayout,
+.rightLayout {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+}
+
+.topLayout p,
+.leftLayout p,
+.rightLayout p {
+  margin: 0;
+}
+
+.palette {
+  border: 1px solid black;
+}
+
+.rightLayout {
+  display: flex;
+}
+
+.rightDivColor {
+  background-color: #0e374e;
+  width: 50%;
+  height: 100%;
+  border-bottom-right-radius: 9px;
+  border-top-right-radius: 9px;
+}
+
+.whiteDivColor {
+  background-color: white;
+  width: 50%;
+  height: 100%;
+  border-bottom-left-radius: 9px;
+  border-top-left-radius: 9px;
+}
+
+.leftDivColor {
+  background-color: #0e374e;
+  width: 50%;
+  height: 100%;
+  border-bottom-left-radius: 9px;
+  border-top-left-radius: 9px;
+}
+
+.topDivColor {
+  display: flex;
+  flex-direction: column;
+  background-color: #0e374e;
+  width: 100%;
+  height: 50%;
+  border-top-right-radius: 9px;
+  border-top-left-radius: 9px;
+}

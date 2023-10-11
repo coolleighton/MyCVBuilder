@@ -1,0 +1,55 @@
+.CustomiseFonts {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.CustomiseFonts h1 {
+  margin: 0;
+  font-size: 25px;
+}
+
+.fontsDiv {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  width: 220px;
+}
+
+.fontsDiv div {
+  border: 1px solid black;
+  padding: 10px;
+  border-radius: 10px;
+  height: 60px;
+  width: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.fontsDiv div:hover {
+  scale: 1.1;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.fontsDiv div p,
+.fontsDiv div h1 {
+  margin: 0;
+}
+
+.mono {
+  font-family: "Roboto Mono", monospace;
+}
+
+.serif {
+  font-family: "IBM Plex Serif", serif;
+}
+
+.sans {
+  font-family: "Open Sans", sans-serif;
+}
