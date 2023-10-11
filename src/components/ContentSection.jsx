@@ -16,22 +16,6 @@ function ContentSection() {
                     <input id="Address" type="textArea" placeholder="Enter your home address"></input>
                 </form>
             </div>
-
-            <div className="EducationSection">
-
-                <div className="EducationHeader">
-                    <div>
-                        <img src="./src/assets/education-img.png"></img>
-                        <h1>Education</h1>
-                    </div>
-                    <img src="./src/assets/down-img.png"></img>
-                </div>
-
-                <button className="addEducation">
-                    <img src="src/assets/plus-img.png"></img>
-                    <p>Education</p>
-                </button>
-            </div>
         </>
         
     )

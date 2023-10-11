@@ -41,69 +41,6 @@
     transition: 0.3s;
 }
 
-/* Education Section --------------------------------------------------*/
 
-.EducationSection {
-    margin-top: 30px;
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    background-color: white;
-    border-radius: 10px;
-}
-
-.EducationHeader {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    cursor: pointer;
-}
-
-.EducationHeader h1 {
-    margin: 0 0 0 10px;
-    font-size: 20px;
-    font-weight: 600;
-}
-
-.EducationHeader div {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-.EducationHeader img {
-    width: 20px;
-    height: 20px;
-}
-
-.addEducation {
-    background-color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 150px;
-    padding: 10px;
-    border: 5px solid #F3F4F6;
-    border-radius: 40px;
-    margin: 20px auto 10px;
-    cursor: pointer;
-}
-
-.addEducation:hover {
-    scale: 1.1;
-    transition: 0.3s;
-}
-
-.addEducation img {
-    width: 15px;
-    margin-right: 5px;
-}
-
-.addEducation p {
-    margin: 0;
-    font-weight: 600;
-    font-size: 15px;
-}
 
 
