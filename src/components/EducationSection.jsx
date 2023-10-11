@@ -64,7 +64,7 @@ function EducationSection() {
                         const active = "block"
                         const inActive = "none"
 
-                        const [formActive, setFormActive] = useState(true)
+                        const [formActive, setFormActive] = useState(false)
 
                         const handleItemClick = () => {
                             if (formActive) {
