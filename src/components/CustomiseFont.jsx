@@ -2,15 +2,6 @@ import styles from "../styles/CustomiseFont..css";
 import { useState } from "react";
 
 function CustomiseFont() {
-  /* Font families 
-
-font-family: 'IBM Plex Serif', serif;
-font-family: 'Open Sans', sans-serif;
-font-family: 'Roboto', sans-serif;
-font-family: 'Roboto Mono', monospace;
-
-*/
-
   const whiteColor = "white";
   const blackColor = "black";
   const blueColor = "#0E374E";
