@@ -1,38 +1,45 @@
 import styles from "../styles/ContentSection.css";
+import CVdata from "../Data/CVdata";
+import { useState } from "react";
 
-function ContentSection() {
+function ContentSection({ handleChange }) {
   return (
     <>
       <div className="PersonalDetails">
         <h1>Personal Details</h1>
         <form>
-          <label htmlFor="Full-name">Full name</label>
+          <label htmlFor="fullName">Full name</label>
           <input
-            id="Full-name"
+            onChange={(e) => handleChange(e.target.value, e.target.id)}
+            id="fullName"
             type="text"
             placeholder="Enter first and last name"
           ></input>
-          <label htmlFor="Email">E-mail</label>
+          <label htmlFor="email">E-mail</label>
           <input
-            id="Email"
+            onChange={(e) => handleChange(e.target.value, e.target.id)}
+            id="email"
             type="e-mail"
             placeholder="Enter e-mail address"
           ></input>
-          <label htmlFor="Phone">Phone number</label>
+          <label htmlFor="phoneNumber">Phone number</label>
           <input
-            id="Phone"
+            onChange={(e) => handleChange(e.target.value, e.target.id)}
+            id="phoneNumber"
             type="tel"
             placeholder="Enter your telephone number"
           ></input>
-          <label htmlFor="Address">Full address</label>
+          <label htmlFor="homeAddress">Full address</label>
           <input
-            id="Address"
+            onChange={(e) => handleChange(e.target.value, e.target.id)}
+            id="homeAddress"
             type="textArea"
             placeholder="Enter your home address"
           ></input>
-          <label htmlFor="Profile">Profile description</label>
+          <label htmlFor="personalDescription">Profile description</label>
           <textarea
-            id="description"
+            onChange={(e) => handleChange(e.target.value, e.target.id)}
+            id="personalDescription"
             rows="4"
             cols="50"
             placeholder="Enter a description about yourself"

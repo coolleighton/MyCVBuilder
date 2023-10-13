@@ -40,7 +40,7 @@ function EducationSection() {
 
   return (
     <>
-      <div className="EducationSection">
+      <div readOnly className="EducationSection">
         <div onClick={handleHeaderClick} className="EducationHeader">
           <div className="HeaderTitle">
             <img src="./src/assets/education-img.png"></img>
@@ -94,9 +94,10 @@ function EducationSection() {
                   style={{ display: formActive ? active : inActive }}
                   className="EducationForm"
                 >
-                  <form>
+                  <form  onChange={console.log("inputChanged")}>
                     <label htmlFor="School">School</label>
                     <input
+                      onChange={console.log("inputChanged")}
                       value={educationItem.school}
                       id="School"
                       type="text"
@@ -104,6 +105,7 @@ function EducationSection() {
                     ></input>
                     <label htmlFor="Degree">Degree</label>
                     <input
+                      onChange={console.log("inputChanged")}
                       value={educationItem.degree}
                       id="Degree"
                       type="text"
@@ -113,6 +115,7 @@ function EducationSection() {
                       <div className="startDateDiv">
                         <label htmlFor="StartDate">Start date</label>
                         <input
+                          onChange={console.log("inputChanged")}
                           value={educationItem.startDate}
                           id="StartDate"
                           type="text"
@@ -122,6 +125,7 @@ function EducationSection() {
                       <div>
                         <label htmlFor="EndDate">End date</label>
                         <input
+                          onChange={console.log("inputChanged")}
                           value={educationItem.endDate}
                           id="EndDate"
                           type="text"
@@ -131,6 +135,7 @@ function EducationSection() {
                     </div>
                     <label htmlFor="location">Location</label>
                     <input
+                      onChange={console.log("inputChanged")}
                       value={educationItem.location}
                       id="location"
                       type="text"

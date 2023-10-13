@@ -100,6 +100,7 @@ function SkillsSection() {
                   <form>
                     <label htmlFor="Skill">Skill Name</label>
                     <input
+                      onChange={console.log("inputChanged")}
                       value={SkillsItem.Skill}
                       id="Skill"
                       type="text"

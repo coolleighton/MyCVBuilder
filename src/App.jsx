@@ -8,6 +8,8 @@ import SkillsSection from "./components/SkillsSection";
 import CustomizeLayout from "./components/CustomiseLayout";
 import CustomizeColors from "./components/CustomiseColors";
 import CustomiseFont from "./components/CustomiseFont";
+import CVPreview from "./components/CVPreview";
+import CVdata from "./Data/CVdata";
 
 function App() {
   const activeColor = "#F5F5F5";
@@ -15,6 +17,8 @@ function App() {
 
   const [contentActive, setContentActive] = useState(true);
   const [customiseActive, setCustomiseActive] = useState(false);
+
+  const [personalInfo, setPersonalInfo] = useState(CVdata);
 
   const handleContentClick = () => {
     if (!contentActive) {
@@ -28,6 +32,15 @@ function App() {
       setContentActive(false);
       setCustomiseActive(true);
     }
+  };
+
+  const handleChange = (value, field) => {
+    const fieldName = field;
+    const newCVdata = {
+      ...personalInfo,
+      [fieldName]: (personalInfo[fieldName] = value),
+    };
+    setPersonalInfo(newCVdata);
   };
 
   return (
@@ -57,7 +70,7 @@ function App() {
         className="content"
       >
         <RenderSaveLoadClearButtons></RenderSaveLoadClearButtons>
-        <ContentSection></ContentSection>
+        <ContentSection handleChange={handleChange}></ContentSection>
         <SkillsSection></SkillsSection>
         <EducationSection></EducationSection>
         <ExperienceSection></ExperienceSection>
@@ -70,6 +83,9 @@ function App() {
         <CustomizeLayout></CustomizeLayout>
         <CustomizeColors></CustomizeColors>
         <CustomiseFont></CustomiseFont>
+      </div>
+      <div>
+        <CVPreview personalInfo={personalInfo}></CVPreview>
       </div>
     </div>
   );
