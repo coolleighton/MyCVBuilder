@@ -94,7 +94,7 @@ function EducationSection() {
                   style={{ display: formActive ? active : inActive }}
                   className="EducationForm"
                 >
-                  <form  onChange={console.log("inputChanged")}>
+                  <form onChange={console.log("inputChanged")}>
                     <label htmlFor="School">School</label>
                     <input
                       onChange={console.log("inputChanged")}

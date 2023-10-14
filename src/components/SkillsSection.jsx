@@ -1,31 +1,9 @@
 import styles from "../styles/SkillsSection.css";
 import { v4 as uuidv4 } from "uuid";
 import { useState } from "react";
+import CVdata from "../Data/CVdata";
 
-let SkillsArray = [
-  {
-    skill: "Python",
-    key: uuidv4(),
-  },
-  {
-    skill: "HTML",
-    key: uuidv4(),
-  },
-  {
-    skill: "CSS",
-    key: uuidv4(),
-  },
-  {
-    skill: "Javascript",
-    key: uuidv4(),
-  },
-  {
-    skill: "React",
-    key: uuidv4(),
-  },
-];
-
-function SkillsSection() {
+function SkillsSection({ handleChange }) {
   const activeDisplay = "block";
   const inActiveDisplay = "none";
   const activeRotation = "rotate(180deg)";
@@ -64,7 +42,7 @@ function SkillsSection() {
           }}
           className="skillList"
         >
-          {SkillsArray.map((SkillsItem) => {
+          {CVdata.skills.map((skillItem) => {
             const active = "block";
             const inActive = "none";
 
@@ -79,11 +57,11 @@ function SkillsSection() {
             };
 
             return (
-              <li key={SkillsItem.key}>
+              <li key={skillItem.skill}>
                 <hr className="Seperator"></hr>
 
                 <div className="skillListItem" onClick={handleItemClick}>
-                  <h2 className="skillListItemName">{SkillsItem.skill}</h2>
+                  <h2 className="skillListItemName">{skillItem.skill}</h2>
                   <img
                     className="skillListItemImg"
                     src="src/assets/down-img.png"
@@ -100,11 +78,13 @@ function SkillsSection() {
                   <form>
                     <label htmlFor="Skill">Skill Name</label>
                     <input
-                      onChange={console.log("inputChanged")}
-                      value={SkillsItem.Skill}
-                      id="Skill"
+                      onChange={(e) =>
+                        handleChange(e.target.value, skillItem.id)
+                      }
+                      id={skillItem.skill}
                       type="text"
                       placeholder="Enter your skill name"
+                      defaultValue={skillItem.skill}
                     ></input>
                   </form>
                 </div>

@@ -7,12 +7,7 @@ function CustomizeColors() {
         <h1>Color</h1>
         <div>
           <p>Accent color</p>
-          <input
-            onChange={console.log("inputChanged")}
-            value="#0E374E"
-            className="colorPicker"
-            type="color"
-          ></input>
+          <input value="#0E374E" className="colorPicker" type="color"></input>
         </div>
       </div>
     </>

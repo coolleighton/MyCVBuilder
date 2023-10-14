@@ -12,13 +12,13 @@ import CVPreview from "./components/CVPreview";
 import CVdata from "./Data/CVdata";
 
 function App() {
+  // handles the content/customisation button click //
+
   const activeColor = "#F5F5F5";
   const inactiveColor = "white";
 
   const [contentActive, setContentActive] = useState(true);
   const [customiseActive, setCustomiseActive] = useState(false);
-
-  const [personalInfo, setPersonalInfo] = useState(CVdata);
 
   const handleContentClick = () => {
     if (!contentActive) {
@@ -34,7 +34,11 @@ function App() {
     }
   };
 
-  const handleChange = (value, field) => {
+  // handles user information change //
+
+  const [personalInfo, setPersonalInfo] = useState(CVdata.personalInfo);
+
+  const handlePersonalChange = (value, field) => {
     const fieldName = field;
     const newCVdata = {
       ...personalInfo,
@@ -42,6 +46,28 @@ function App() {
     };
     setPersonalInfo(newCVdata);
   };
+
+  // handle skills information change //
+
+  const [skills, setSkills] = useState(CVdata.skills);
+
+  const handleSkillsChange = (value, index) => {
+    const newCVdata = skills.map((skillItem) => {
+      if (skillItem.id === index) {
+        return {
+          ...skillItem,
+          skill: (skillItem.skill = value),
+        };
+      } else {
+        return skillItem;
+      }
+    });
+
+    console.log(newCVdata)
+    setSkills(newCVdata);
+  };
+
+  // UI //
 
   return (
     <div className="mainDiv">
@@ -70,8 +96,8 @@ function App() {
         className="content"
       >
         <RenderSaveLoadClearButtons></RenderSaveLoadClearButtons>
-        <ContentSection handleChange={handleChange}></ContentSection>
-        <SkillsSection></SkillsSection>
+        <ContentSection handleChange={handlePersonalChange}></ContentSection>
+        <SkillsSection handleChange={handleSkillsChange}></SkillsSection>
         <EducationSection></EducationSection>
         <ExperienceSection></ExperienceSection>
       </div>
@@ -85,10 +111,12 @@ function App() {
         <CustomiseFont></CustomiseFont>
       </div>
       <div>
-        <CVPreview personalInfo={personalInfo}></CVPreview>
+        <CVPreview skills={skills} personalInfo={personalInfo}></CVPreview>
       </div>
     </div>
   );
 }
 
 export default App;
+
+// "<SkillsSection handleChange={handleSkillsChange}></SkillsSection>"

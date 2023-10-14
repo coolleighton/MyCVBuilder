@@ -89,7 +89,6 @@ function ExperienceSection() {
                   <form>
                     <label htmlFor="company">Company Name</label>
                     <input
-                      onChange={console.log("inputChanged")}
                       value={experienceItem.company}
                       id="company"
                       type="text"
@@ -97,7 +96,6 @@ function ExperienceSection() {
                     ></input>
                     <label htmlFor="position">Position title</label>
                     <input
-                      onChange={console.log("inputChanged")}
                       value={experienceItem.position}
                       id="position"
                       type="text"
@@ -107,7 +105,6 @@ function ExperienceSection() {
                       <div className="startDateDiv">
                         <label htmlFor="StartDate">Start date</label>
                         <input
-                          onChange={console.log("inputChanged")}
                           value={experienceItem.startDate}
                           id="StartDate"
                           type="text"
@@ -117,7 +114,6 @@ function ExperienceSection() {
                       <div>
                         <label htmlFor="EndDate">End date</label>
                         <input
-                          onChange={console.log("inputChanged")}
                           value={experienceItem.endDate}
                           id="EndDate"
                           type="text"
@@ -127,7 +123,6 @@ function ExperienceSection() {
                     </div>
                     <label htmlFor="location">Location</label>
                     <input
-                      onChange={console.log("inputChanged")}
                       value={experienceItem.location}
                       id="location"
                       type="text"
@@ -135,7 +130,6 @@ function ExperienceSection() {
                     ></input>
                     <label htmlFor="description">Description</label>
                     <textarea
-                      onChange={console.log("inputChanged")}
                       value={experienceItem.description}
                       id="description"
                       rows="4"

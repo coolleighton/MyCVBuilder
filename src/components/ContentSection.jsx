@@ -14,6 +14,7 @@ function ContentSection({ handleChange }) {
             id="fullName"
             type="text"
             placeholder="Enter first and last name"
+            defaultValue={CVdata.personalInfo.fullName}
           ></input>
           <label htmlFor="email">E-mail</label>
           <input
@@ -21,6 +22,7 @@ function ContentSection({ handleChange }) {
             id="email"
             type="e-mail"
             placeholder="Enter e-mail address"
+            defaultValue={CVdata.personalInfo.email}
           ></input>
           <label htmlFor="phoneNumber">Phone number</label>
           <input
@@ -28,6 +30,7 @@ function ContentSection({ handleChange }) {
             id="phoneNumber"
             type="tel"
             placeholder="Enter your telephone number"
+            defaultValue={CVdata.personalInfo.phoneNumber}
           ></input>
           <label htmlFor="homeAddress">Full address</label>
           <input
@@ -35,6 +38,7 @@ function ContentSection({ handleChange }) {
             id="homeAddress"
             type="textArea"
             placeholder="Enter your home address"
+            defaultValue={CVdata.personalInfo.homeAddress}
           ></input>
           <label htmlFor="personalDescription">Profile description</label>
           <textarea
@@ -43,6 +47,7 @@ function ContentSection({ handleChange }) {
             rows="4"
             cols="50"
             placeholder="Enter a description about yourself"
+            defaultValue={CVdata.personalInfo.personalDescription}
           ></textarea>
         </form>
       </div>
