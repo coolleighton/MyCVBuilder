@@ -1,20 +1,9 @@
 import styles from "../styles/ExperienceSection.css";
 import { v4 as uuidv4 } from "uuid";
 import { useState } from "react";
+import CVdata from "../Data/CVdata";
 
-let ExperienceArray = [
-  {
-    company: "Northern Automotive",
-    position: "Automotive Engineer",
-    startDate: "01/01/2020",
-    endDate: "Present",
-    location: "Cardiff, UK",
-    description: "job description",
-    key: uuidv4(),
-  },
-];
-
-function ExperienceSection() {
+function ExperienceSection({ handleChange }) {
   const activeDisplay = "block";
   const inActiveDisplay = "none";
   const activeRotation = "rotate(180deg)";
@@ -32,7 +21,7 @@ function ExperienceSection() {
 
   return (
     <>
-      <div className="ExperienceSection">
+      <div className="ExperienceSection" key={uuidv4()}>
         <div onClick={handleHeaderClick} className="ExperienceHeader">
           <div className="HeaderTitle">
             <img src="./src/assets/experience-img.png"></img>
@@ -53,7 +42,7 @@ function ExperienceSection() {
           }}
           className="JobList"
         >
-          {ExperienceArray.map((experienceItem) => {
+          {CVdata.experience.map((experienceItem) => {
             const active = "block";
             const inActive = "none";
 
@@ -68,7 +57,7 @@ function ExperienceSection() {
             };
 
             return (
-              <li key={experienceItem.key}>
+              <li key={experienceItem.id}>
                 <hr className="Seperator"></hr>
 
                 <div className="JobListItem" onClick={handleItemClick}>
@@ -89,33 +78,61 @@ function ExperienceSection() {
                   <form>
                     <label htmlFor="company">Company Name</label>
                     <input
-                      value={experienceItem.company}
+                      onChange={(e) =>
+                        handleChange(
+                          e.target.value,
+                          experienceItem.id,
+                          e.target.id
+                        )
+                      }
+                      defaultValue={experienceItem.company}
                       id="company"
                       type="text"
                       placeholder="Enter your company name"
                     ></input>
                     <label htmlFor="position">Position title</label>
                     <input
-                      value={experienceItem.position}
+                      onChange={(e) =>
+                        handleChange(
+                          e.target.value,
+                          experienceItem.id,
+                          e.target.id
+                        )
+                      }
+                      defaultValue={experienceItem.position}
                       id="position"
                       type="text"
                       placeholder="Enter your position title"
                     ></input>
                     <div className="ExperienceDates">
                       <div className="startDateDiv">
-                        <label htmlFor="StartDate">Start date</label>
+                        <label htmlFor="startDate">Start date</label>
                         <input
-                          value={experienceItem.startDate}
-                          id="StartDate"
+                          onChange={(e) =>
+                            handleChange(
+                              e.target.value,
+                              experienceItem.id,
+                              e.target.id
+                            )
+                          }
+                          defaultValue={experienceItem.startDate}
+                          id="startDate"
                           type="text"
                           placeholder="Enter your start date"
                         ></input>
                       </div>
                       <div>
-                        <label htmlFor="EndDate">End date</label>
+                        <label htmlFor="endDate">End date</label>
                         <input
-                          value={experienceItem.endDate}
-                          id="EndDate"
+                          onChange={(e) =>
+                            handleChange(
+                              e.target.value,
+                              experienceItem.id,
+                              e.target.id
+                            )
+                          }
+                          defaultValue={experienceItem.endDate}
+                          id="endDate"
                           type="text"
                           placeholder="Enter your end date"
                         ></input>
@@ -123,14 +140,28 @@ function ExperienceSection() {
                     </div>
                     <label htmlFor="location">Location</label>
                     <input
-                      value={experienceItem.location}
+                      onChange={(e) =>
+                        handleChange(
+                          e.target.value,
+                          experienceItem.id,
+                          e.target.id
+                        )
+                      }
+                      defaultValue={experienceItem.location}
                       id="location"
                       type="text"
                       placeholder="Enter the school location"
                     ></input>
                     <label htmlFor="description">Description</label>
                     <textarea
-                      value={experienceItem.description}
+                      onChange={(e) =>
+                        handleChange(
+                          e.target.value,
+                          experienceItem.id,
+                          e.target.id
+                        )
+                      }
+                      defaultValue={experienceItem.description}
                       id="description"
                       rows="4"
                       cols="50"

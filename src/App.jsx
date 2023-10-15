@@ -63,7 +63,7 @@ function App() {
       }
     });
 
-    console.log(newCVdata)
+    console.log(newCVdata);
     setSkills(newCVdata);
   };
 
@@ -72,7 +72,7 @@ function App() {
   const [educationInfo, setEducationInfo] = useState(CVdata.education);
 
   const handleEducationChange = (value, index, field) => {
-    const fieldName = field
+    const fieldName = field;
     const newCVdata = educationInfo.map((educationItem) => {
       if (educationItem.id === index) {
         return {
@@ -84,8 +84,29 @@ function App() {
       }
     });
 
-    console.log(newCVdata)
+    console.log(newCVdata);
     setEducationInfo(newCVdata);
+  };
+
+  // handle experience information change //
+
+  const [experienceInfo, setExperienceInfo] = useState(CVdata.experience);
+
+  const handleExperienceChange = (value, index, field) => {
+    const fieldName = field;
+    const newCVdata = experienceInfo.map((experienceItem) => {
+      if (experienceItem.id === index) {
+        return {
+          ...experienceItem,
+          [fieldName]: (experienceItem[fieldName] = value),
+        };
+      } else {
+        return experienceItem;
+      }
+    });
+
+    console.log(newCVdata);
+    setExperienceInfo(newCVdata);
   };
 
   // UI //
@@ -119,7 +140,9 @@ function App() {
         <RenderSaveLoadClearButtons></RenderSaveLoadClearButtons>
         <ContentSection handleChange={handlePersonalChange}></ContentSection>
         <SkillsSection handleChange={handleSkillsChange}></SkillsSection>
-        <EducationSection handleChange={handleEducationChange}></EducationSection>
+        <EducationSection
+          handleChange={handleEducationChange}
+        ></EducationSection>
         <ExperienceSection></ExperienceSection>
       </div>
       <div
@@ -132,7 +155,12 @@ function App() {
         <CustomiseFont></CustomiseFont>
       </div>
       <div>
-        <CVPreview skills={skills} personalInfo={personalInfo} education={educationInfo}></CVPreview>
+        <CVPreview
+          skills={skills}
+          personalInfo={personalInfo}
+          education={educationInfo}
+          experience={experienceInfo}
+        ></CVPreview>
       </div>
     </div>
   );

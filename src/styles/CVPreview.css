@@ -1,5 +1,32 @@
 .CVPreview {
-    height: 1000px;
-    max-width: 702px;
-    background-color: white;
+  min-height: 1000px;
+  max-width: 702px;
+  background-color: white;
+}
+
+.header {
+  background-color: #0e374e;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.header div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.header div img {
+  width: 20px;
+}
+
+.header div div {
+  padding: 0 5px;
+}
+
+.header p,
+.header h1 {
+  color: white;
 }
