@@ -9,7 +9,7 @@ function SkillsSection({ handleChange }) {
   const activeRotation = "rotate(180deg)";
   const inActiveRotation = "rotate(0deg)";
 
-  const [SkillsActive, setSkillsActive] = useState(true);
+  const [SkillsActive, setSkillsActive] = useState(false);
 
   const handleHeaderClick = () => {
     if (SkillsActive) {

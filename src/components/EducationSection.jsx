@@ -1,34 +1,15 @@
 import styles from "../styles/EducationSection.css";
 import { v4 as uuidv4 } from "uuid";
 import { useState } from "react";
+import CVdata from "../Data/CVdata";
 
-let educationArray = [
-  {
-    school: "Cardiff City University",
-    degree: "Automotive Engineering",
-    startDate: "01/01/2020",
-    endDate: "Present",
-    location: "Cardiff, UK",
-    key: uuidv4(),
-  },
-
-  {
-    school: "New York University",
-    degree: "Mechanical Engineering",
-    startDate: "06/02/2025",
-    endDate: "present",
-    location: "New York, USA",
-    key: uuidv4(),
-  },
-];
-
-function EducationSection() {
+function EducationSection({ handleChange }) {
   const activeDisplay = "block";
   const inActiveDisplay = "none";
   const activeRotation = "rotate(180deg)";
   const inActiveRotation = "rotate(0deg)";
 
-  const [EducationActive, setEducationActive] = useState(true);
+  const [EducationActive, setEducationActive] = useState(false);
 
   const handleHeaderClick = () => {
     if (EducationActive) {
@@ -59,7 +40,7 @@ function EducationSection() {
           style={{ display: EducationActive ? activeDisplay : inActiveDisplay }}
           className="UniversityList"
         >
-          {educationArray.map((educationItem) => {
+          {CVdata.education.map((educationItem) => {
             const active = "block";
             const inActive = "none";
 
@@ -74,7 +55,7 @@ function EducationSection() {
             };
 
             return (
-              <li key={educationItem.key}>
+              <li key={educationItem.id}>
                 <hr className="Seperator"></hr>
 
                 <div className="UniversityListItem" onClick={handleItemClick}>
@@ -94,40 +75,64 @@ function EducationSection() {
                   style={{ display: formActive ? active : inActive }}
                   className="EducationForm"
                 >
-                  <form onChange={console.log("inputChanged")}>
-                    <label htmlFor="School">School</label>
+                  <form>
+                    <label htmlFor="school">School</label>
                     <input
-                      onChange={console.log("inputChanged")}
-                      value={educationItem.school}
-                      id="School"
+                      onChange={(e) =>
+                        handleChange(
+                          e.target.value,
+                          educationItem.id,
+                          e.target.id
+                        )
+                      }
+                      defaultValue={educationItem.school}
+                      id="school"
                       type="text"
                       placeholder="Enter your school / university"
                     ></input>
-                    <label htmlFor="Degree">Degree</label>
+                    <label htmlFor="degree">Degree</label>
                     <input
-                      onChange={console.log("inputChanged")}
-                      value={educationItem.degree}
-                      id="Degree"
+                      onChange={(e) =>
+                        handleChange(
+                          e.target.value,
+                          educationItem.id,
+                          e.target.id
+                        )
+                      }
+                      defaultValue={educationItem.degree}
+                      id="degree"
                       type="text"
                       placeholder="Enter your degree"
                     ></input>
                     <div className="educationDates">
                       <div className="startDateDiv">
-                        <label htmlFor="StartDate">Start date</label>
+                        <label htmlFor="startDate">Start date</label>
                         <input
-                          onChange={console.log("inputChanged")}
-                          value={educationItem.startDate}
-                          id="StartDate"
+                          onChange={(e) =>
+                            handleChange(
+                              e.target.value,
+                              educationItem.id,
+                              e.target.id
+                            )
+                          }
+                          defaultValue={educationItem.startDate}
+                          id="startDate"
                           type="text"
                           placeholder="Enter your start date"
                         ></input>
                       </div>
                       <div>
-                        <label htmlFor="EndDate">End date</label>
+                        <label htmlFor="endDate">End date</label>
                         <input
-                          onChange={console.log("inputChanged")}
-                          value={educationItem.endDate}
-                          id="EndDate"
+                          onChange={(e) =>
+                            handleChange(
+                              e.target.value,
+                              educationItem.id,
+                              e.target.id
+                            )
+                          }
+                          defaultValue={educationItem.endDate}
+                          id="endDate"
                           type="text"
                           placeholder="Enter your end date"
                         ></input>
@@ -135,8 +140,14 @@ function EducationSection() {
                     </div>
                     <label htmlFor="location">Location</label>
                     <input
-                      onChange={console.log("inputChanged")}
-                      value={educationItem.location}
+                      onChange={(e) =>
+                        handleChange(
+                          e.target.value,
+                          educationItem.id,
+                          e.target.id
+                        )
+                      }
+                      defaultValue={educationItem.location}
                       id="location"
                       type="text"
                       placeholder="Enter the school location"

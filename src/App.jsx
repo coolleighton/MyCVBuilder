@@ -67,6 +67,27 @@ function App() {
     setSkills(newCVdata);
   };
 
+  // handle education information change //
+
+  const [educationInfo, setEducationInfo] = useState(CVdata.education);
+
+  const handleEducationChange = (value, index, field) => {
+    const fieldName = field
+    const newCVdata = educationInfo.map((educationItem) => {
+      if (educationItem.id === index) {
+        return {
+          ...educationItem,
+          [fieldName]: (educationItem[fieldName] = value),
+        };
+      } else {
+        return educationItem;
+      }
+    });
+
+    console.log(newCVdata)
+    setEducationInfo(newCVdata);
+  };
+
   // UI //
 
   return (
@@ -98,7 +119,7 @@ function App() {
         <RenderSaveLoadClearButtons></RenderSaveLoadClearButtons>
         <ContentSection handleChange={handlePersonalChange}></ContentSection>
         <SkillsSection handleChange={handleSkillsChange}></SkillsSection>
-        <EducationSection></EducationSection>
+        <EducationSection handleChange={handleEducationChange}></EducationSection>
         <ExperienceSection></ExperienceSection>
       </div>
       <div
@@ -111,7 +132,7 @@ function App() {
         <CustomiseFont></CustomiseFont>
       </div>
       <div>
-        <CVPreview skills={skills} personalInfo={personalInfo}></CVPreview>
+        <CVPreview skills={skills} personalInfo={personalInfo} education={educationInfo}></CVPreview>
       </div>
     </div>
   );

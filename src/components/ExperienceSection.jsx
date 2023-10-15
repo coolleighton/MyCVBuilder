@@ -20,7 +20,7 @@ function ExperienceSection() {
   const activeRotation = "rotate(180deg)";
   const inActiveRotation = "rotate(0deg)";
 
-  const [ExperienceActive, setExperienceActive] = useState(true);
+  const [ExperienceActive, setExperienceActive] = useState(false);
 
   const handleHeaderClick = () => {
     if (ExperienceActive) {
