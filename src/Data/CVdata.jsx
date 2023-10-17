@@ -12,13 +12,17 @@ let CVdata = {
     { id: 1, skill: "Plankalkül" },
     { id: 2, skill: "Short Code" },
     { id: 3, skill: "HTML5, CSS3" },
+    { id: 0, skill: "Javascript" },
+    { id: 1, skill: "React" },
+    { id: 2, skill: "Python" },
+    { id: 3, skill: "Responsive Design" },
   ],
   education: [
     {
       school: "Kings College Cambridge",
       degree: "Master of Arts (MA) in Mathmatics",
-      startDate: "05/09/1931",
-      endDate: "12/06/1934",
+      startDate: "09/1931",
+      endDate: "06/1934",
       location: "Cambridge, England",
       id: 0,
     },
@@ -26,7 +30,7 @@ let CVdata = {
     {
       school: "Princeton University",
       degree: "Doctor of Philosphy (PHD) in Mathmetics ",
-      startDate: "07/09/1936",
+      startDate: "09/1936",
       endDate: "14/06/1938",
       location: "Princeton, New Jersey, USA",
       id: 1,

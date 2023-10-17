@@ -1,8 +1,8 @@
 .mainDiv {
-  width: 80%;
+  max-width: 80%;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 0.8fr 3fr 5fr;
+  grid-template-columns: minmax(150px, 150px) minmax(300px, 500px) minmax(700px, 700px);
   grid-column-gap: 20px;
   grid-row-gap: 20px;
   border: 2px solid transparent;
