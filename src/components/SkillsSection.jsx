@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 import { useState } from "react";
 import CVdata from "../Data/CVdata";
 
-function SkillsSection({ handleChange }) {
+function SkillsSection({ skills, handleChange, handleActive }) {
   const activeDisplay = "block";
   const inActiveDisplay = "none";
   const activeRotation = "rotate(180deg)";
@@ -18,6 +18,9 @@ function SkillsSection({ handleChange }) {
       setSkillsActive(true);
     }
   };
+
+  const active = "block";
+  const inActive = "none";
 
   return (
     <>
@@ -35,44 +38,40 @@ function SkillsSection({ handleChange }) {
             src="./src/assets/down-img.png"
           ></img>
         </div>
-
         <ul
           style={{
             display: SkillsActive ? activeDisplay : inActiveDisplay,
           }}
           className="skillList"
         >
-          {CVdata.skills.map((skillItem) => {
-            const active = "block";
-            const inActive = "none";
-
-            const [formActive, setFormActive] = useState(false);
-
-            const handleItemClick = () => {
-              if (formActive) {
-                setFormActive(false);
-              } else {
-                setFormActive(true);
-              }
-            };
-
+          {skills.map((skillItem) => {
             return (
-              <li key={skillItem.skill}>
+              <li key={skillItem.id}>
                 <hr className="Seperator"></hr>
 
-                <div className="skillListItem" onClick={handleItemClick}>
+                <div
+                  className="skillListItem"
+                  onClick={handleActive(skillItem.id)}
+                >
                   <h2 className="skillListItemName">{skillItem.skill}</h2>
                   <img
                     className="skillListItemImg"
                     src="src/assets/down-img.png"
-                    style={{
-                      transform: formActive ? activeRotation : inActiveRotation,
-                    }}
+                    style={
+                      {
+                        /*transform: formActive ? activeRotation : inActiveRotation,
+                         */
+                      }
+                    }
                   ></img>
                 </div>
 
                 <div
-                  style={{ display: formActive ? active : inActive }}
+                  style={
+                    {
+                      /*display: formActive ? active : inActive*/
+                    }
+                  }
                   className="SkillsForm"
                 >
                   <form>
@@ -84,7 +83,7 @@ function SkillsSection({ handleChange }) {
                       id={skillItem.skill}
                       type="text"
                       placeholder="Enter your skill name"
-                      defaultValue={skillItem.skill}
+                      value={skillItem.skill}
                     ></input>
                   </form>
                 </div>

@@ -8,14 +8,14 @@ let CVdata = {
       "Distinguished computer scientist and mathematician known for groundbreaking contributions to the field of computer science, artificial intelligence, and cryptography. Pioneered the development of the Turing Machine, a theoretical framework that laid the foundation for modern computing. Played a pivotal role in breaking the Enigma code during World War II, a critical achievement that greatly influenced the outcome of the war. A visionary thinker who left an indelible mark on the technology and scientific community.",
   },
   skills: [
-    { id: 0, skill: "Assembly Language" },
-    { id: 1, skill: "Plankalkül" },
-    { id: 2, skill: "Short Code" },
-    { id: 3, skill: "HTML5, CSS3" },
-    { id: 0, skill: "Javascript" },
-    { id: 1, skill: "React" },
-    { id: 2, skill: "Python" },
-    { id: 3, skill: "Responsive Design" },
+    { isActive: false, id: 0, skill: "Assembly Language" },
+    { isActive: false, id: 1, skill: "Plankalkül" },
+    { isActive: false, id: 2, skill: "Short Code" },
+    { isActive: false, id: 3, skill: "HTML5, CSS3" },
+    { isActive: false, id: 4, skill: "Javascript" },
+    { isActive: false, id: 5, skill: "React" },
+    { isActive: false, id: 6, skill: "Python" },
+    { isActive: false, id: 7, skill: "Responsive Design" },
   ],
   education: [
     {
@@ -43,7 +43,9 @@ let CVdata = {
       startDate: "1948",
       endDate: "1954",
       location: "Oxford Rd, Manchester",
-      description: "Played a pivotal role in the development of the Automatic Computing Engine (ACE), one of the earliest electronic stored-program computers. Worked on the Manchester Mark I, a pioneering computer that executed stored programs, laying the foundation for modern computing. Collaborated with fellow scientists to advance the understanding of early computer architecture and programming languages. Contributed to the field of artificial intelligence, conceptualizing the Turing Test and pioneering the study of machine intelligence.",
+      description:
+        "Played a pivotal role in the development of the Automatic Computing Engine (ACE), one of the earliest electronic stored-program computers. Worked on the Manchester Mark I, a pioneering computer that executed stored programs, laying the foundation for modern computing. Collaborated with fellow scientists to advance the understanding of early computer architecture and programming languages. Contributed to the field of artificial intelligence, conceptualizing the Turing Test and pioneering the study of machine intelligence.",
+      id: 0,
     },
     {
       company: "Government Code and Cypher School (GCHQ)",
@@ -51,7 +53,9 @@ let CVdata = {
       startDate: "1940",
       endDate: "1945",
       location: "Bletchley Park, Sherwood Dr, Bletchley, Milton Keynes",
-      description: "Led a team of brilliant mathematicians, engineers, and cryptanalysts in the highly secretive and vital endeavor of breaking the Enigma code used by Nazi Germany. Designed and oversaw the development of the Bombe machine, an electromechanical device that significantly expedited the process of deciphering Enigma-encrypted messages. Pioneered new techniques and algorithms for deciphering codes, contributing to the Allied forces' ability to intercept and decode critical intelligence during World War II. Maintained the utmost discretion and confidentiality, demonstrating an unwavering commitment to national security.",
+      description:
+        "Led a team of brilliant mathematicians, engineers, and cryptanalysts in the highly secretive and vital endeavor of breaking the Enigma code used by Nazi Germany. Designed and oversaw the development of the Bombe machine, an electromechanical device that significantly expedited the process of deciphering Enigma-encrypted messages. Pioneered new techniques and algorithms for deciphering codes, contributing to the Allied forces' ability to intercept and decode critical intelligence during World War II. Maintained the utmost discretion and confidentiality, demonstrating an unwavering commitment to national security.",
+      id: 1,
     },
   ],
 };

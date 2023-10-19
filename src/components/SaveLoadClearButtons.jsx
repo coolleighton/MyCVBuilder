@@ -1,13 +1,13 @@
 import styles from "../styles/SaveLoadClearButtons.css";
 
-function RenderSaveLoadClearButtons() {
+function RenderSaveLoadClearButtons({ handleClear, handleLoad }) {
   return (
     <div className="SaveLoadClearButtons">
-      <button className="clear">
+      <button onClick={handleClear} className="clear">
         <img src="./src/assets/clear-img.png"></img>
         <p>Clear CV</p>
       </button>
-      <button className="load">
+      <button onClick={handleLoad} className="load">
         <p>Load Example</p>
       </button>
       <button className="download">

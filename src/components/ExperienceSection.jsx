@@ -21,7 +21,7 @@ function ExperienceSection({ handleChange }) {
 
   return (
     <>
-      <div className="ExperienceSection" key={uuidv4()}>
+      <div className="ExperienceSection">
         <div onClick={handleHeaderClick} className="ExperienceHeader">
           <div className="HeaderTitle">
             <img src="./src/assets/experience-img.png"></img>

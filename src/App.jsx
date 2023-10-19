@@ -34,7 +34,7 @@ function App() {
     }
   };
 
-  // handles user information change //
+  // handles profile information change //
 
   const [personalInfo, setPersonalInfo] = useState(CVdata.personalInfo);
 
@@ -62,8 +62,6 @@ function App() {
         return skillItem;
       }
     });
-
-    console.log(newCVdata);
     setSkills(newCVdata);
   };
 
@@ -83,8 +81,6 @@ function App() {
         return educationItem;
       }
     });
-
-    console.log(newCVdata);
     setEducationInfo(newCVdata);
   };
 
@@ -104,10 +100,51 @@ function App() {
         return experienceItem;
       }
     });
-
-    console.log(newCVdata);
     setExperienceInfo(newCVdata);
   };
+
+  // handle clear button click //
+
+  const handleClear = () => {
+    console.log(CVdata);
+    const newPersonalCVdata = {
+      fullName: "",
+      email: "",
+      phoneNumber: "",
+      homeAddress: "",
+      personalDescription: "",
+    };
+    const newSkillsCVdata = [];
+
+    setPersonalInfo(newPersonalCVdata);
+    setSkills(newSkillsCVdata);
+  };
+
+  // handle load example button click //
+
+  const handleLoad = () => {
+    console.log(CVdata);
+    const newPersonalCVdata = {
+      ...personalInfo,
+      fullName: (personalInfo.fullName = CVdata.personalInfo.fullName),
+      email: (personalInfo.email = CVdata.personalInfo.email),
+      phoneNumber: (personalInfo.phoneNumber = CVdata.personalInfo.phoneNumber),
+      homeAddress: (personalInfo.homeAddress = CVdata.personalInfo.homeAddress),
+      personalDescription: (personalInfo.personalDescription =
+        CVdata.personalInfo.personalDescription),
+    };
+
+    setPersonalInfo(newPersonalCVdata);
+    setSkills(CVdata.skills);
+    setEducationInfo(CVdata.education);
+    setExperienceInfo(CVdata.experience);
+  };
+
+  // handle active //
+
+  const handleActive = (id) => {
+    console.log(id)
+  }
 
   // UI //
 
@@ -137,19 +174,33 @@ function App() {
         style={{ display: contentActive ? "block" : "none" }}
         className="content"
       >
-        <RenderSaveLoadClearButtons></RenderSaveLoadClearButtons>
-        <ContentSection handleChange={handlePersonalChange}></ContentSection>
-        <SkillsSection handleChange={handleSkillsChange}></SkillsSection>
+        <RenderSaveLoadClearButtons
+          handleClear={handleClear}
+          handleLoad={handleLoad}
+        ></RenderSaveLoadClearButtons>
+        <ContentSection
+          personalInfo={personalInfo}
+          handleChange={handlePersonalChange}
+        ></ContentSection>
+        <SkillsSection
+          skills={skills}
+          handleActive = {handleActive}
+          handleChange={handleSkillsChange}
+        ></SkillsSection>
         <EducationSection
           handleChange={handleEducationChange}
         ></EducationSection>
-        <ExperienceSection></ExperienceSection>
+        <ExperienceSection
+          handleChange={handleExperienceChange}
+        ></ExperienceSection>
       </div>
       <div
         style={{ display: customiseActive ? "block" : "none" }}
         className="customization"
       >
-        <RenderSaveLoadClearButtons></RenderSaveLoadClearButtons>
+        <RenderSaveLoadClearButtons
+          handleClear={handleClear}
+        ></RenderSaveLoadClearButtons>
         <CustomizeLayout></CustomizeLayout>
         <CustomizeColors></CustomizeColors>
         <CustomiseFont></CustomiseFont>

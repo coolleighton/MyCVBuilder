@@ -55,7 +55,7 @@ function EducationSection({ handleChange }) {
             };
 
             return (
-              <li key={educationItem.id}>
+              <li>
                 <hr className="Seperator"></hr>
 
                 <div className="UniversityListItem" onClick={handleItemClick}>
