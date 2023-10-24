@@ -143,8 +143,45 @@ function App() {
   // handle active //
 
   const handleActive = (id) => {
-    console.log(id)
-  }
+    
+  };
+
+  // handle font clicks //
+
+  const [serifActive, setSerifActive] = useState(true);
+  const [sansActive, setSansActive] = useState(false);
+  const [monoActive, setMonoActive] = useState(false);
+  const [fontFamily, setFontFamily] = useState("'IBM Plex Serif', serif")
+
+  const handleClickSerif = () => {
+    if (!serifActive) {
+      setSerifActive(true);
+      setSansActive(false);
+      setMonoActive(false);
+      setFontFamily("fontFamily: 'IBM Plex Serif', serif;")
+      console.log("fontFamily: 'IBM Plex Serif', serif;")
+    }
+  };
+
+  const handleClickSans = () => {
+    if (!sansActive) {
+      setSerifActive(false);
+      setSansActive(true);
+      setMonoActive(false);
+      setFontFamily("fontFamily: 'Open Sans', sans-serif;")
+      console.log("fontFamily: 'Open Sans', sans-serif;")
+    }
+  };
+
+  const handleClickMono = () => {
+    if (!monoActive) {
+      setSerifActive(false);
+      setSansActive(false);
+      setMonoActive(true);
+      setFontFamily("fontFamily: 'Roboto Mono', monospace;")
+      console.log("fontFamily: 'Roboto Mono', monospace;")
+    }
+  };
 
   // UI //
 
@@ -184,7 +221,7 @@ function App() {
         ></ContentSection>
         <SkillsSection
           skills={skills}
-          handleActive = {handleActive}
+          handleActive={handleActive}
           handleChange={handleSkillsChange}
         ></SkillsSection>
         <EducationSection
@@ -203,7 +240,14 @@ function App() {
         ></RenderSaveLoadClearButtons>
         <CustomizeLayout></CustomizeLayout>
         <CustomizeColors></CustomizeColors>
-        <CustomiseFont></CustomiseFont>
+        <CustomiseFont
+          serifActive={serifActive}
+          sansActive={sansActive}
+          monoActive={monoActive}
+          handleClickMono={handleClickMono}
+          handleClickSans={handleClickSans}
+          handleClickSerif={handleClickSerif}
+        ></CustomiseFont>
       </div>
       <div>
         <CVPreview
@@ -211,6 +255,7 @@ function App() {
           personalInfo={personalInfo}
           education={educationInfo}
           experience={experienceInfo}
+          font={fontFamily}
         ></CVPreview>
       </div>
     </div>

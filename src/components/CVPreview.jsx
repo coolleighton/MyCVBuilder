@@ -1,12 +1,18 @@
 import styles from "../styles/CVPreview.css";
 import { v4 as uuidv4 } from "uuid";
 
-function CVPreview({ skills, personalInfo, education, experience }) {
+function CVPreview({
+  skills,
+  personalInfo,
+  education,
+  experience,
+  fontFamily,
+}) {
   return (
     <>
       <div className="CVPreview" key={uuidv4()}>
         <div className="header">
-          <h1>{personalInfo.fullName}</h1>
+          <h1 style={fontFamily}>{personalInfo.fullName}</h1>
           <div>
             <div>
               <img src="src/assets/email-white-img.png"></img>
@@ -79,7 +85,9 @@ function CVPreview({ skills, personalInfo, education, experience }) {
                   <p key={experienceItem.position}>{experienceItem.position}</p>
                 </div>
                 <div className="infoRight">
-                  <p className="bold" key={experienceItem.company}>{experienceItem.company}</p>
+                  <p className="bold" key={experienceItem.company}>
+                    {experienceItem.company}
+                  </p>
                   <p key={experienceItem.description}>
                     {experienceItem.description}
                   </p>

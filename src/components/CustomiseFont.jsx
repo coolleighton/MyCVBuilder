@@ -1,38 +1,17 @@
 import styles from "../styles/CustomiseFont..css";
 import { useState } from "react";
 
-function CustomiseFont() {
+function CustomiseFont({
+  handleClickSerif,
+  handleClickSans,
+  handleClickMono,
+  sansActive,
+  monoActive,
+  serifActive,
+}) {
   const whiteColor = "white";
   const blackColor = "black";
   const blueColor = "#0E374E";
-
-  const [serifActive, setSerifActive] = useState(true);
-  const [sansActive, setSansActive] = useState(false);
-  const [monoActive, setMonoActive] = useState(false);
-
-  const handleClickSerif = () => {
-    if (!serifActive) {
-      setSerifActive(true);
-      setSansActive(false);
-      setMonoActive(false);
-    }
-  };
-
-  const handleClickSans = () => {
-    if (!sansActive) {
-      setSerifActive(false);
-      setSansActive(true);
-      setMonoActive(false);
-    }
-  };
-
-  const handleClickMono = () => {
-    if (!monoActive) {
-      setSerifActive(false);
-      setSansActive(false);
-      setMonoActive(true);
-    }
-  };
 
   return (
     <>
