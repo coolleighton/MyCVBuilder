@@ -3,11 +3,11 @@ import { v4 as uuidv4 } from "uuid";
 import { useState } from "react";
 import CVdata from "../Data/CVdata";
 
-function SkillsSection({ skills, handleChange, handleActive }) {
-  const activeDisplay = "block";
-  const inActiveDisplay = "none";
+function SkillsSection({ skills, handleChange, handleColapseForm }) {
   const activeRotation = "rotate(180deg)";
   const inActiveRotation = "rotate(0deg)";
+  const activeDisplay = "block";
+  const inActiveDisplay = "none";
 
   const [SkillsActive, setSkillsActive] = useState(false);
 
@@ -18,9 +18,6 @@ function SkillsSection({ skills, handleChange, handleActive }) {
       setSkillsActive(true);
     }
   };
-
-  const active = "block";
-  const inActive = "none";
 
   return (
     <>
@@ -45,35 +42,55 @@ function SkillsSection({ skills, handleChange, handleActive }) {
           className="skillList"
         >
           {skills.map((skillItem) => {
+            const buttonDisplay = () => {
+              if (skillItem.isActivee) {
+                let activeDisplayStyle = {
+                  display: "block",
+                };
+                return activeDisplayStyle;
+              } else {
+                let activeDisplayStyle = {
+                  display: "none",
+                };
+                return activeDisplayStyle;
+              }
+            };
+
+            const buttonRotation = () => {
+              if (skillItem.isActivee) {
+                let activeRotationStyle = {
+                  transform: "rotate(180deg)",
+                };
+                return activeRotationStyle;
+              } else {
+                let activeRotationStyle = {
+                  transform: "rotate(0deg)",
+                };
+                return activeRotationStyle;
+              }
+            };
+
             return (
               <li key={skillItem.id}>
                 <hr className="Seperator"></hr>
 
                 <div
                   className="skillListItem"
-                  onClick={handleActive(skillItem.id)}
+                  onClick={(e) => handleColapseForm(e)}
+                  id={skillItem.id}
                 >
-                  <h2 className="skillListItemName">{skillItem.skill}</h2>
+                  <h2 id={skillItem.id} className="skillListItemName">
+                    {skillItem.skill}
+                  </h2>
                   <img
+                    id={skillItem.id}
                     className="skillListItemImg"
                     src="src/assets/down-img.png"
-                    style={
-                      {
-                        /*transform: formActive ? activeRotation : inActiveRotation,
-                         */
-                      }
-                    }
+                    style={buttonRotation()}
                   ></img>
                 </div>
 
-                <div
-                  style={
-                    {
-                      /*display: formActive ? active : inActive*/
-                    }
-                  }
-                  className="SkillsForm"
-                >
+                <div style={buttonDisplay()} className="SkillsForm">
                   <form>
                     <label htmlFor="Skill">Skill Name</label>
                     <input

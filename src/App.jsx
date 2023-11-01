@@ -65,6 +65,30 @@ function App() {
     setSkills(newCVdata);
   };
 
+  // Handle skills active click //
+
+  const handleSkillsColapseForm = (e) => {
+    
+    if (skills[e.target.id].isActivee) {
+      skills[e.target.id].isActivee = false;
+    } else {
+      skills[e.target.id].isActivee = true;
+    }
+
+    const newCVdata = skills.map((skillItem) => {
+      if (skillItem.id === e) {
+        return {
+          ...skillItem,
+          skill: (skillItem.isActivee = !skillItem.isActivee),
+        };
+      } else {
+        return skillItem;
+      }
+    });
+    setSkills(newCVdata)
+
+  };
+
   // handle education information change //
 
   const [educationInfo, setEducationInfo] = useState(CVdata.education);
@@ -106,7 +130,6 @@ function App() {
   // handle clear button click //
 
   const handleClear = () => {
-    console.log(CVdata);
     const newPersonalCVdata = {
       fullName: "",
       email: "",
@@ -115,9 +138,13 @@ function App() {
       personalDescription: "",
     };
     const newSkillsCVdata = [];
+    const newEducationCVdata = [];
+    const newExperienceCVdata = [];
 
     setPersonalInfo(newPersonalCVdata);
     setSkills(newSkillsCVdata);
+    setEducationInfo(newEducationCVdata)
+    setExperienceInfo(newExperienceCVdata);
   };
 
   // handle load example button click //
@@ -138,12 +165,6 @@ function App() {
     setSkills(CVdata.skills);
     setEducationInfo(CVdata.education);
     setExperienceInfo(CVdata.experience);
-  };
-
-  // handle active //
-
-  const handleActive = (id) => {
-    
   };
 
   // handle font clicks //
@@ -183,6 +204,8 @@ function App() {
     }
   };
 
+  
+
   // UI //
 
   return (
@@ -221,10 +244,11 @@ function App() {
         ></ContentSection>
         <SkillsSection
           skills={skills}
-          handleActive={handleActive}
+          handleColapseForm={handleSkillsColapseForm}
           handleChange={handleSkillsChange}
         ></SkillsSection>
         <EducationSection
+          education={educationInfo}
           handleChange={handleEducationChange}
         ></EducationSection>
         <ExperienceSection

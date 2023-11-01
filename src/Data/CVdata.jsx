@@ -8,14 +8,14 @@ let CVdata = {
       "Distinguished computer scientist and mathematician known for groundbreaking contributions to the field of computer science, artificial intelligence, and cryptography. Pioneered the development of the Turing Machine, a theoretical framework that laid the foundation for modern computing. Played a pivotal role in breaking the Enigma code during World War II, a critical achievement that greatly influenced the outcome of the war. A visionary thinker who left an indelible mark on the technology and scientific community.",
   },
   skills: [
-    { isActive: false, id: 0, skill: "Assembly Language" },
-    { isActive: false, id: 1, skill: "Plankalkül" },
-    { isActive: false, id: 2, skill: "Short Code" },
-    { isActive: false, id: 3, skill: "HTML5, CSS3" },
-    { isActive: false, id: 4, skill: "Javascript" },
-    { isActive: false, id: 5, skill: "React" },
-    { isActive: false, id: 6, skill: "Python" },
-    { isActive: false, id: 7, skill: "Responsive Design" },
+    { isActivee: false, id: 0, skill: "Assembly Language" },
+    { isActivee: false, id: 1, skill: "Plankalkül" },
+    { isActivee: false, id: 2, skill: "Short Code" },
+    { isActivee: false, id: 3, skill: "HTML5, CSS3" },
+    { isActivee: false, id: 4, skill: "Javascript" },
+    { isActivee: false, id: 5, skill: "React" },
+    { isActivee: false, id: 6, skill: "Python" },
+    { isActivee: false, id: 7, skill: "Responsive Design" },
   ],
   education: [
     {

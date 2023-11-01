@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 import { useState } from "react";
 import CVdata from "../Data/CVdata";
 
-function EducationSection({ handleChange }) {
+function EducationSection({education, handleChange }) {
   const activeDisplay = "block";
   const inActiveDisplay = "none";
   const activeRotation = "rotate(180deg)";
@@ -21,7 +21,7 @@ function EducationSection({ handleChange }) {
 
   return (
     <>
-      <div readOnly className="EducationSection">
+      <div className="EducationSection">
         <div onClick={handleHeaderClick} className="EducationHeader">
           <div className="HeaderTitle">
             <img src="./src/assets/education-img.png"></img>
@@ -40,25 +40,15 @@ function EducationSection({ handleChange }) {
           style={{ display: EducationActive ? activeDisplay : inActiveDisplay }}
           className="UniversityList"
         >
-          {CVdata.education.map((educationItem) => {
+          {education.map((educationItem) => {
             const active = "block";
             const inActive = "none";
 
-            const [formActive, setFormActive] = useState(false);
-
-            const handleItemClick = () => {
-              if (formActive) {
-                setFormActive(false);
-              } else {
-                setFormActive(true);
-              }
-            };
-
             return (
-              <li>
+              <li key={uuidv4()}>
                 <hr className="Seperator"></hr>
 
-                <div className="UniversityListItem" onClick={handleItemClick}>
+                <div className="UniversityListItem" onClick={console.log("clicked")}>
                   <h2 className="UniversityListItemName">
                     {educationItem.school}
                   </h2>
@@ -66,13 +56,13 @@ function EducationSection({ handleChange }) {
                     className="UniversityListItemImg"
                     src="src/assets/down-img.png"
                     style={{
-                      transform: formActive ? activeRotation : inActiveRotation,
+                      /*transform: formActive ? activeRotation : inActiveRotation,*/
                     }}
                   ></img>
                 </div>
 
                 <div
-                  style={{ display: formActive ? active : inActive }}
+                  style={{ /*display: formActive ? active : inActive*/ }}
                   className="EducationForm"
                 >
                   <form>
