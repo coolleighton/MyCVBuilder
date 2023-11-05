@@ -34,6 +34,8 @@ function App() {
     }
   };
 
+  // 
+
   // handles profile information change //
 
   const [personalInfo, setPersonalInfo] = useState(CVdata.personalInfo);
@@ -68,7 +70,6 @@ function App() {
   // Handle skills active click //
 
   const handleSkillsColapseForm = (e) => {
-    
     if (skills[e.target.id].isActivee) {
       skills[e.target.id].isActivee = false;
     } else {
@@ -85,8 +86,7 @@ function App() {
         return skillItem;
       }
     });
-    setSkills(newCVdata)
-
+    setSkills(newCVdata);
   };
 
   // handle education information change //
@@ -100,6 +100,28 @@ function App() {
         return {
           ...educationItem,
           [fieldName]: (educationItem[fieldName] = value),
+        };
+      } else {
+        return educationItem;
+      }
+    });
+    setEducationInfo(newCVdata);
+  };
+
+  // handle education active click //
+
+  const handleEducationColapseForm = (e) => {
+    if (educationInfo[e.target.id].isActivee) {
+      educationInfo[e.target.id].isActivee = false;
+    } else {
+      educationInfo[e.target.id].isActivee = true;
+    }
+
+    const newCVdata = educationInfo.map((educationItem) => {
+      if (educationItem.id === e) {
+        return {
+          ...educationItem,
+          isActivee: (educationItem.isActivee = !educationItem.isActivee),
         };
       } else {
         return educationItem;
@@ -127,6 +149,28 @@ function App() {
     setExperienceInfo(newCVdata);
   };
 
+  // handle education active click //
+
+  const handleExperienceColapseForm = (e) => {
+    if (experienceInfo[e.target.id].isActivee) {
+      experienceInfo[e.target.id].isActivee = false;
+    } else {
+      experienceInfo[e.target.id].isActivee = true;
+    }
+
+    const newCVdata = experienceInfo.map((experienceItem) => {
+      if (experienceInfo.id === e) {
+        return {
+          ...experienceItem,
+          isActivee: (experienceItem.isActivee = !experienceItem.isActivee),
+        };
+      } else {
+        return experienceItem;
+      }
+    });
+    setExperienceInfo(newCVdata);
+  };
+
   // handle clear button click //
 
   const handleClear = () => {
@@ -143,7 +187,7 @@ function App() {
 
     setPersonalInfo(newPersonalCVdata);
     setSkills(newSkillsCVdata);
-    setEducationInfo(newEducationCVdata)
+    setEducationInfo(newEducationCVdata);
     setExperienceInfo(newExperienceCVdata);
   };
 
@@ -172,15 +216,15 @@ function App() {
   const [serifActive, setSerifActive] = useState(true);
   const [sansActive, setSansActive] = useState(false);
   const [monoActive, setMonoActive] = useState(false);
-  const [fontFamily, setFontFamily] = useState("'IBM Plex Serif', serif")
+  const [fontFamily, setFontFamily] = useState("'IBM Plex Serif', serif");
 
   const handleClickSerif = () => {
     if (!serifActive) {
       setSerifActive(true);
       setSansActive(false);
       setMonoActive(false);
-      setFontFamily("fontFamily: 'IBM Plex Serif', serif;")
-      console.log("fontFamily: 'IBM Plex Serif', serif;")
+      setFontFamily("fontFamily: 'IBM Plex Serif', serif;");
+      console.log("fontFamily: 'IBM Plex Serif', serif;");
     }
   };
 
@@ -189,8 +233,8 @@ function App() {
       setSerifActive(false);
       setSansActive(true);
       setMonoActive(false);
-      setFontFamily("fontFamily: 'Open Sans', sans-serif;")
-      console.log("fontFamily: 'Open Sans', sans-serif;")
+      setFontFamily("fontFamily: 'Open Sans', sans-serif;");
+      console.log("fontFamily: 'Open Sans', sans-serif;");
     }
   };
 
@@ -199,12 +243,10 @@ function App() {
       setSerifActive(false);
       setSansActive(false);
       setMonoActive(true);
-      setFontFamily("fontFamily: 'Roboto Mono', monospace;")
-      console.log("fontFamily: 'Roboto Mono', monospace;")
+      setFontFamily("fontFamily: 'Roboto Mono', monospace;");
+      console.log("fontFamily: 'Roboto Mono', monospace;");
     }
   };
-
-  
 
   // UI //
 
@@ -249,9 +291,12 @@ function App() {
         ></SkillsSection>
         <EducationSection
           education={educationInfo}
+          handleColapseForm={handleEducationColapseForm}
           handleChange={handleEducationChange}
         ></EducationSection>
         <ExperienceSection
+          experience={experienceInfo}
+          handleColapseForm={handleExperienceColapseForm}
           handleChange={handleExperienceChange}
         ></ExperienceSection>
       </div>

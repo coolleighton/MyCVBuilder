@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 import { useState } from "react";
 import CVdata from "../Data/CVdata";
 
-function EducationSection({education, handleChange }) {
+function EducationSection({ education, handleChange, handleColapseForm }) {
   const activeDisplay = "block";
   const inActiveDisplay = "none";
   const activeRotation = "rotate(180deg)";
@@ -41,30 +41,57 @@ function EducationSection({education, handleChange }) {
           className="UniversityList"
         >
           {education.map((educationItem) => {
-            const active = "block";
-            const inActive = "none";
+            const buttonDisplay = () => {
+              if (educationItem.isActivee) {
+                let activeDisplayStyle = {
+                  display: "block",
+                };
+                return activeDisplayStyle;
+              } else {
+                let activeDisplayStyle = {
+                  display: "none",
+                };
+                return activeDisplayStyle;
+              }
+            };
+
+            const buttonRotation = () => {
+              if (education.isActivee) {
+                let activeRotationStyle = {
+                  transform: "rotate(180deg)",
+                };
+                return activeRotationStyle;
+              } else {
+                let activeRotationStyle = {
+                  transform: "rotate(0deg)",
+                };
+                return activeRotationStyle;
+              }
+            };
 
             return (
-              <li key={uuidv4()}>
+              <li key={educationItem.id}>
                 <hr className="Seperator"></hr>
 
-                <div className="UniversityListItem" onClick={console.log("clicked")}>
-                  <h2 className="UniversityListItemName">
+                <div
+                  id={educationItem.id}
+                  className="UniversityListItem"
+                  onClick={handleColapseForm}
+                >
+                  <h2 id={educationItem.id} className="UniversityListItemName">
                     {educationItem.school}
                   </h2>
                   <img
+                    id={educationItem.id}
                     className="UniversityListItemImg"
                     src="src/assets/down-img.png"
-                    style={{
-                      /*transform: formActive ? activeRotation : inActiveRotation,*/
-                    }}
+                    style={
+                      buttonRotation()
+                    }
                   ></img>
                 </div>
 
-                <div
-                  style={{ /*display: formActive ? active : inActive*/ }}
-                  className="EducationForm"
-                >
+                <div style={ buttonDisplay() } className="EducationForm">
                   <form>
                     <label htmlFor="school">School</label>
                     <input

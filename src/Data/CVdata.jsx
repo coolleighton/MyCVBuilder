@@ -25,6 +25,7 @@ let CVdata = {
       endDate: "06/1934",
       location: "Cambridge, England",
       id: 0,
+      isActivee: false,
     },
 
     {
@@ -34,6 +35,7 @@ let CVdata = {
       endDate: "14/06/1938",
       location: "Princeton, New Jersey, USA",
       id: 1,
+      isActivee: false,
     },
   ],
   experience: [
@@ -46,6 +48,7 @@ let CVdata = {
       description:
         "Played a pivotal role in the development of the Automatic Computing Engine (ACE), one of the earliest electronic stored-program computers. Worked on the Manchester Mark I, a pioneering computer that executed stored programs, laying the foundation for modern computing. Collaborated with fellow scientists to advance the understanding of early computer architecture and programming languages. Contributed to the field of artificial intelligence, conceptualizing the Turing Test and pioneering the study of machine intelligence.",
       id: 0,
+      isActivee: false,
     },
     {
       company: "Government Code and Cypher School (GCHQ)",
@@ -56,6 +59,7 @@ let CVdata = {
       description:
         "Led a team of brilliant mathematicians, engineers, and cryptanalysts in the highly secretive and vital endeavor of breaking the Enigma code used by Nazi Germany. Designed and oversaw the development of the Bombe machine, an electromechanical device that significantly expedited the process of deciphering Enigma-encrypted messages. Pioneered new techniques and algorithms for deciphering codes, contributing to the Allied forces' ability to intercept and decode critical intelligence during World War II. Maintained the utmost discretion and confidentiality, demonstrating an unwavering commitment to national security.",
       id: 1,
+      isActivee: false,
     },
   ],
 };

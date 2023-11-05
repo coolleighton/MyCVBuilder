@@ -38,7 +38,7 @@ function CVPreview({
           <h2>Skills</h2>
           <ul>
             {skills.map((skillItem) => {
-              return <li key={uuidv4()}>{skillItem.skill}</li>;
+              return <li key={skillItem.id}>{skillItem.skill}</li>;
             })}
           </ul>
         </div>
@@ -47,7 +47,7 @@ function CVPreview({
           <h2>Education</h2>
           {education.map((educationItem) => {
             return (
-              <div key={uuidv4()} className="educationItem">
+              <div key={educationItem.id} className="educationItem">
                 <div className="infoLeft">
                   <div className="dates">
                     <p key={educationItem.startDate}>
@@ -73,7 +73,7 @@ function CVPreview({
           <h2>Experience</h2>
           {experience.map((experienceItem) => {
             return (
-              <div key={uuidv4()} className="experienceItem">
+              <div key={experienceItem.id} className="experienceItem">
                 <div className="infoLeft">
                   <div className="dates">
                     <p key={experienceItem.startDate}>

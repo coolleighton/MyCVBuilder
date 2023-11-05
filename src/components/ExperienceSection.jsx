@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 import { useState } from "react";
 import CVdata from "../Data/CVdata";
 
-function ExperienceSection({ handleChange }) {
+function ExperienceSection({ experience, handleChange, handleColapseForm }) {
   const activeDisplay = "block";
   const inActiveDisplay = "none";
   const activeRotation = "rotate(180deg)";
@@ -42,17 +42,32 @@ function ExperienceSection({ handleChange }) {
           }}
           className="JobList"
         >
-          {CVdata.experience.map((experienceItem) => {
-            const active = "block";
-            const inActive = "none";
-
-            const [formActive, setFormActive] = useState(false);
-
-            const handleItemClick = () => {
-              if (formActive) {
-                setFormActive(false);
+          {experience.map((experienceItem) => {
+            const buttonDisplay = () => {
+              if (experienceItem.isActivee) {
+                let activeDisplayStyle = {
+                  display: "block",
+                };
+                return activeDisplayStyle;
               } else {
-                setFormActive(true);
+                let activeDisplayStyle = {
+                  display: "none",
+                };
+                return activeDisplayStyle;
+              }
+            };
+
+            const buttonRotation = () => {
+              if (experienceItem.isActivee) {
+                let activeRotationStyle = {
+                  transform: "rotate(180deg)",
+                };
+                return activeRotationStyle;
+              } else {
+                let activeRotationStyle = {
+                  transform: "rotate(0deg)",
+                };
+                return activeRotationStyle;
               }
             };
 
@@ -60,21 +75,17 @@ function ExperienceSection({ handleChange }) {
               <li key={experienceItem.id}>
                 <hr className="Seperator"></hr>
 
-                <div className="JobListItem" onClick={handleItemClick}>
-                  <h2 className="JobListItemName">{experienceItem.company}</h2>
+                <div id={experienceItem.id} className="JobListItem" onClick={handleColapseForm}>
+                  <h2 id={experienceItem.id} className="JobListItemName">{experienceItem.company}</h2>
                   <img
+                    id={experienceItem.id}
                     className="JobListItemImg"
                     src="src/assets/down-img.png"
-                    style={{
-                      transform: formActive ? activeRotation : inActiveRotation,
-                    }}
+                    style={buttonRotation()}
                   ></img>
                 </div>
 
-                <div
-                  style={{ display: formActive ? active : inActive }}
-                  className="ExperienceForm"
-                >
+                <div style={buttonDisplay()} className="ExperienceForm">
                   <form>
                     <label htmlFor="company">Company Name</label>
                     <input
