@@ -2,6 +2,8 @@ import styles from "../styles/SkillsSection.css";
 import { v4 as uuidv4 } from "uuid";
 import { useState } from "react";
 import CVdata from "../Data/CVdata";
+import DeleteBtn from "./deleteBtn";
+
 
 function SkillsSection({ skills, handleChange, handleColapseForm }) {
   const activeRotation = "rotate(180deg)";
@@ -103,6 +105,7 @@ function SkillsSection({ skills, handleChange, handleColapseForm }) {
                       value={skillItem.skill}
                     ></input>
                   </form>
+                  <DeleteBtn></DeleteBtn>
                 </div>
               </li>
             );
