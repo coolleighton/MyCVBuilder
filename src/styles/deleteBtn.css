@@ -1,4 +1,4 @@
-button {
+.deleteBtn {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -10,12 +10,24 @@ button {
     cursor: pointer;
 }
 
-button img {
+.deleteBtn img {
     width: 20px;
+    ;
 }
 
-button p {
+.deleteBtn p {
     font-size: 15px;
     font-weight: 800;
     color: rgb(200, 200, 200);
+}
+
+.deleteBtn:hover {
+    scale: 1.1;
+    transition: 0.3s;
+    border: 1px solid rgb(120, 120, 120);
+}
+
+.deleteBtn:hover p {
+    color: rgb(120, 120, 120);
+    transition: 0.3s;
 }

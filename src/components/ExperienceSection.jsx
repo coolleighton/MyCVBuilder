@@ -2,8 +2,14 @@ import styles from "../styles/ExperienceSection.css";
 import { v4 as uuidv4 } from "uuid";
 import { useState } from "react";
 import CVdata from "../Data/CVdata";
+import DeleteBtn from "./deleteBtn";
 
-function ExperienceSection({ experience, handleChange, handleColapseForm }) {
+function ExperienceSection({
+  experience,
+  handleChange,
+  handleColapseForm,
+  handleDelete,
+}) {
   const activeDisplay = "block";
   const inActiveDisplay = "none";
   const activeRotation = "rotate(180deg)";
@@ -75,8 +81,14 @@ function ExperienceSection({ experience, handleChange, handleColapseForm }) {
               <li key={experienceItem.id}>
                 <hr className="Seperator"></hr>
 
-                <div id={experienceItem.id} className="JobListItem" onClick={handleColapseForm}>
-                  <h2 id={experienceItem.id} className="JobListItemName">{experienceItem.company}</h2>
+                <div
+                  id={experienceItem.id}
+                  className="JobListItem"
+                  onClick={handleColapseForm}
+                >
+                  <h2 id={experienceItem.id} className="JobListItemName">
+                    {experienceItem.company}
+                  </h2>
                   <img
                     id={experienceItem.id}
                     className="JobListItemImg"
@@ -179,6 +191,11 @@ function ExperienceSection({ experience, handleChange, handleColapseForm }) {
                       placeholder="Enter the school location"
                     ></textarea>
                   </form>
+                  <DeleteBtn
+                    section={experience}
+                    handleDelete={handleDelete}
+                    index={experienceItem.id}
+                  ></DeleteBtn>
                 </div>
               </li>
             );

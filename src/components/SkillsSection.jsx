@@ -5,7 +5,7 @@ import CVdata from "../Data/CVdata";
 import DeleteBtn from "./deleteBtn";
 
 
-function SkillsSection({ skills, handleChange, handleColapseForm }) {
+function SkillsSection({ skills, handleChange, handleColapseForm, handleDelete }) {
   const activeRotation = "rotate(180deg)";
   const inActiveRotation = "rotate(0deg)";
   const activeDisplay = "block";
@@ -105,7 +105,7 @@ function SkillsSection({ skills, handleChange, handleColapseForm }) {
                       value={skillItem.skill}
                     ></input>
                   </form>
-                  <DeleteBtn></DeleteBtn>
+                  <DeleteBtn section={skills} handleDelete={handleDelete}  index={skillItem.id}></DeleteBtn>
                 </div>
               </li>
             );

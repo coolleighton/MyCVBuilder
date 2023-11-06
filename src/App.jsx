@@ -70,10 +70,13 @@ function App() {
   // Handle skills active click //
 
   const handleSkillsColapseForm = (e) => {
-    if (skills[e.target.id].isActivee) {
-      skills[e.target.id].isActivee = false;
+
+    let index = skills.findIndex(x => x.id === +e.target.id)
+
+    if (skills[index].isActivee) {
+      skills[index].isActivee = false;
     } else {
-      skills[e.target.id].isActivee = true;
+      skills[index].isActivee = true;
     }
 
     const newCVdata = skills.map((skillItem) => {
@@ -111,10 +114,13 @@ function App() {
   // handle education active click //
 
   const handleEducationColapseForm = (e) => {
-    if (educationInfo[e.target.id].isActivee) {
-      educationInfo[e.target.id].isActivee = false;
+
+    let index = educationInfo.findIndex(x => x.id === +e.target.id)
+
+    if (educationInfo[index].isActivee) {
+      educationInfo[index].isActivee = false;
     } else {
-      educationInfo[e.target.id].isActivee = true;
+      educationInfo[index].isActivee = true;
     }
 
     const newCVdata = educationInfo.map((educationItem) => {
@@ -152,10 +158,13 @@ function App() {
   // handle education active click //
 
   const handleExperienceColapseForm = (e) => {
-    if (experienceInfo[e.target.id].isActivee) {
-      experienceInfo[e.target.id].isActivee = false;
+
+    let index = experienceInfo.findIndex(x => x.id === +e.target.id)
+
+    if (experienceInfo[index].isActivee) {
+      experienceInfo[index].isActivee = false;
     } else {
-      experienceInfo[e.target.id].isActivee = true;
+      experienceInfo[index].isActivee = true;
     }
 
     const newCVdata = experienceInfo.map((experienceItem) => {
@@ -209,6 +218,23 @@ function App() {
     setSkills(CVdata.skills);
     setEducationInfo(CVdata.education);
     setExperienceInfo(CVdata.experience);
+  };
+
+  // handle delete click //
+
+  const handleDeleteClick = (index, section) => {
+
+    const newCVdata = section.filter(Item =>
+      Item.id !== index)
+    if (section === skills) {
+      setSkills(newCVdata)
+    }
+    else if (section === educationInfo) {
+      setEducationInfo(newCVdata)
+    }
+    else if (section === experienceInfo) {
+      setExperienceInfo(newCVdata)
+    }
   };
 
   // handle font clicks //
@@ -288,16 +314,19 @@ function App() {
           skills={skills}
           handleColapseForm={handleSkillsColapseForm}
           handleChange={handleSkillsChange}
+          handleDelete={handleDeleteClick}
         ></SkillsSection>
         <EducationSection
           education={educationInfo}
           handleColapseForm={handleEducationColapseForm}
           handleChange={handleEducationChange}
+          handleDelete={handleDeleteClick}
         ></EducationSection>
         <ExperienceSection
           experience={experienceInfo}
           handleColapseForm={handleExperienceColapseForm}
           handleChange={handleExperienceChange}
+          handleDelete={handleDeleteClick}
         ></ExperienceSection>
       </div>
       <div

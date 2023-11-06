@@ -1,9 +1,10 @@
 import styles from "../styles/EducationSection.css";
+import DeleteBtn from "./deleteBtn";
 import { v4 as uuidv4 } from "uuid";
 import { useState } from "react";
 import CVdata from "../Data/CVdata";
 
-function EducationSection({ education, handleChange, handleColapseForm }) {
+function EducationSection({ education, handleChange, handleColapseForm, handleDelete }) {
   const activeDisplay = "block";
   const inActiveDisplay = "none";
   const activeRotation = "rotate(180deg)";
@@ -41,6 +42,8 @@ function EducationSection({ education, handleChange, handleColapseForm }) {
           className="UniversityList"
         >
           {education.map((educationItem) => {
+
+            
             const buttonDisplay = () => {
               if (educationItem.isActivee) {
                 let activeDisplayStyle = {
@@ -170,6 +173,7 @@ function EducationSection({ education, handleChange, handleColapseForm }) {
                       placeholder="Enter the school location"
                     ></input>
                   </form>
+                  <DeleteBtn section={education} handleDelete={handleDelete}  index={educationItem.id}></DeleteBtn>
                 </div>
               </li>
             );
