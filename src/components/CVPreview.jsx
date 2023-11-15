@@ -10,7 +10,7 @@ function CVPreview({
 }) {
   return (
     <>
-      <div className="CVPreview" key={uuidv4()}>
+      <div className="CVPreview" key={1}>
         <div className="header">
           <h1 style={fontFamily}>{personalInfo.fullName}</h1>
           <div>

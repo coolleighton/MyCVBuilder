@@ -4,7 +4,13 @@ import { v4 as uuidv4 } from "uuid";
 import { useState } from "react";
 import CVdata from "../Data/CVdata";
 
-function EducationSection({ education, handleChange, handleColapseForm, handleDelete }) {
+function EducationSection({
+  education,
+  handleChange,
+  handleColapseForm,
+  handleDelete,
+  handleAdd,
+}) {
   const activeDisplay = "block";
   const inActiveDisplay = "none";
   const activeRotation = "rotate(180deg)";
@@ -42,8 +48,6 @@ function EducationSection({ education, handleChange, handleColapseForm, handleDe
           className="UniversityList"
         >
           {education.map((educationItem) => {
-
-            
             const buttonDisplay = () => {
               if (educationItem.isActivee) {
                 let activeDisplayStyle = {
@@ -88,13 +92,11 @@ function EducationSection({ education, handleChange, handleColapseForm, handleDe
                     id={educationItem.id}
                     className="UniversityListItemImg"
                     src="src/assets/down-img.png"
-                    style={
-                      buttonRotation()
-                    }
+                    style={buttonRotation()}
                   ></img>
                 </div>
 
-                <div style={ buttonDisplay() } className="EducationForm">
+                <div style={buttonDisplay()} className="EducationForm">
                   <form>
                     <label htmlFor="school">School</label>
                     <input
@@ -173,7 +175,13 @@ function EducationSection({ education, handleChange, handleColapseForm, handleDe
                       placeholder="Enter the school location"
                     ></input>
                   </form>
-                  <DeleteBtn section={education} handleDelete={handleDelete}  index={educationItem.id}></DeleteBtn>
+                  <div className="addDelDiv">
+                    <DeleteBtn
+                      section={education}
+                      handleDelete={handleDelete}
+                      index={educationItem.id}
+                    ></DeleteBtn>
+                  </div>
                 </div>
               </li>
             );
@@ -181,7 +189,10 @@ function EducationSection({ education, handleChange, handleColapseForm, handleDe
 
           <hr className="Seperator"></hr>
 
-          <button className="addEducation">
+          <button
+            onClick={(e) => handleAdd(education)}
+            className="addEducation"
+          >
             <img src="src/assets/plus-img.png"></img>
             <p>Education</p>
           </button>

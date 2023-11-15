@@ -1,5 +1,4 @@
 import styles from "../styles/ContentSection.css";
-import CVdata from "../Data/CVdata";
 import { useState } from "react";
 
 function ContentSection({ personalInfo, handleChange }) {

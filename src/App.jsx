@@ -10,6 +10,7 @@ import CustomizeColors from "./components/CustomiseColors";
 import CustomiseFont from "./components/CustomiseFont";
 import CVPreview from "./components/CVPreview";
 import CVdata from "./Data/CVdata";
+import { v4 as uuidv4 } from "uuid";
 
 function App() {
   // handles the content/customisation button click //
@@ -34,19 +35,22 @@ function App() {
     }
   };
 
-  // 
+  //
 
   // handles profile information change //
 
   const [personalInfo, setPersonalInfo] = useState(CVdata.personalInfo);
 
   const handlePersonalChange = (value, field) => {
+    console.log(CVdata);
     const fieldName = field;
     const newCVdata = {
       ...personalInfo,
       [fieldName]: (personalInfo[fieldName] = value),
     };
+
     setPersonalInfo(newCVdata);
+    console.log(CVdata);
   };
 
   // handle skills information change //
@@ -70,8 +74,8 @@ function App() {
   // Handle skills active click //
 
   const handleSkillsColapseForm = (e) => {
-
-    let index = skills.findIndex(x => x.id === +e.target.id)
+    console.log(e.target.id);
+    let index = skills.findIndex((x) => x.id === +e.target.id);
 
     if (skills[index].isActivee) {
       skills[index].isActivee = false;
@@ -114,8 +118,7 @@ function App() {
   // handle education active click //
 
   const handleEducationColapseForm = (e) => {
-
-    let index = educationInfo.findIndex(x => x.id === +e.target.id)
+    let index = educationInfo.findIndex((x) => x.id === +e.target.id);
 
     if (educationInfo[index].isActivee) {
       educationInfo[index].isActivee = false;
@@ -158,8 +161,7 @@ function App() {
   // handle education active click //
 
   const handleExperienceColapseForm = (e) => {
-
-    let index = experienceInfo.findIndex(x => x.id === +e.target.id)
+    let index = experienceInfo.findIndex((x) => x.id === +e.target.id);
 
     if (experienceInfo[index].isActivee) {
       experienceInfo[index].isActivee = false;
@@ -183,6 +185,7 @@ function App() {
   // handle clear button click //
 
   const handleClear = () => {
+    console.log(CVdata);
     const newPersonalCVdata = {
       fullName: "",
       email: "",
@@ -198,23 +201,14 @@ function App() {
     setSkills(newSkillsCVdata);
     setEducationInfo(newEducationCVdata);
     setExperienceInfo(newExperienceCVdata);
+    console.log(CVdata);
   };
 
   // handle load example button click //
 
   const handleLoad = () => {
     console.log(CVdata);
-    const newPersonalCVdata = {
-      ...personalInfo,
-      fullName: (personalInfo.fullName = CVdata.personalInfo.fullName),
-      email: (personalInfo.email = CVdata.personalInfo.email),
-      phoneNumber: (personalInfo.phoneNumber = CVdata.personalInfo.phoneNumber),
-      homeAddress: (personalInfo.homeAddress = CVdata.personalInfo.homeAddress),
-      personalDescription: (personalInfo.personalDescription =
-        CVdata.personalInfo.personalDescription),
-    };
-
-    setPersonalInfo(newPersonalCVdata);
+    setPersonalInfo(CVdata.personalInfo);
     setSkills(CVdata.skills);
     setEducationInfo(CVdata.education);
     setExperienceInfo(CVdata.experience);
@@ -223,17 +217,59 @@ function App() {
   // handle delete click //
 
   const handleDeleteClick = (index, section) => {
-
-    const newCVdata = section.filter(Item =>
-      Item.id !== index)
+    const newCVdata = section.filter((Item) => Item.id !== index);
     if (section === skills) {
-      setSkills(newCVdata)
+      setSkills(newCVdata);
+    } else if (section === educationInfo) {
+      setEducationInfo(newCVdata);
+    } else if (section === experienceInfo) {
+      setExperienceInfo(newCVdata);
     }
-    else if (section === educationInfo) {
-      setEducationInfo(newCVdata)
-    }
-    else if (section === experienceInfo) {
-      setExperienceInfo(newCVdata)
+  };
+
+  // handle add click //
+
+  const handleAddClick = (section) => {
+    const id = section.length;
+    if (section === skills) {
+      const newCVdata = [
+        ...section,
+        {
+          isActivee: true,
+          id: id,
+          skill: "Example Skill",
+        },
+      ];
+      setSkills(newCVdata);
+    } else if (section === educationInfo) {
+      const newCVdata = [
+        ...section,
+        {
+          school: "Example Name",
+          degree: "Example Degree",
+          startDate: "01/2023",
+          endDate: "01/2023",
+          location: "Example Location",
+          id: id,
+          isActivee: true,
+        },
+      ];
+      setEducationInfo(newCVdata);
+    } else if (section === experienceInfo) {
+      const newCVdata = [
+        ...section,
+        {
+          company: "Example Company",
+          position: "Example Position",
+          startDate: "2023",
+          endDate: "2023",
+          location: "Example Location",
+          description: "Example Description",
+          id: id,
+          isActivee: true,
+        },
+      ];
+      setExperienceInfo(newCVdata);
     }
   };
 
@@ -315,18 +351,21 @@ function App() {
           handleColapseForm={handleSkillsColapseForm}
           handleChange={handleSkillsChange}
           handleDelete={handleDeleteClick}
+          handleAdd={handleAddClick}
         ></SkillsSection>
         <EducationSection
           education={educationInfo}
           handleColapseForm={handleEducationColapseForm}
           handleChange={handleEducationChange}
           handleDelete={handleDeleteClick}
+          handleAdd={handleAddClick}
         ></EducationSection>
         <ExperienceSection
           experience={experienceInfo}
           handleColapseForm={handleExperienceColapseForm}
           handleChange={handleExperienceChange}
           handleDelete={handleDeleteClick}
+          handleAdd={handleAddClick}
         ></ExperienceSection>
       </div>
       <div

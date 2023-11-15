@@ -9,6 +9,7 @@ function ExperienceSection({
   handleChange,
   handleColapseForm,
   handleDelete,
+  handleAdd,
 }) {
   const activeDisplay = "block";
   const inActiveDisplay = "none";
@@ -203,7 +204,10 @@ function ExperienceSection({
 
           <hr className="Seperator"></hr>
 
-          <button className="addExperience">
+          <button
+            onClick={(e) => handleAdd(experience)}
+            className="addExperience"
+          >
             <img src="src/assets/plus-img.png"></img>
             <p>Experience</p>
           </button>

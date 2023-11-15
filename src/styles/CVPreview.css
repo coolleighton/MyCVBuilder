@@ -44,7 +44,6 @@ p {
 }
 
 .profile,
-.skills,
 .education,
 .experience {
   display: flex;
@@ -52,6 +51,14 @@ p {
   justify-content: center;
   align-items: center;
   margin: 30px 50px 20px;
+}
+
+.skills {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 30px 50px 0;
 }
 
 .profile h2,
@@ -75,7 +82,7 @@ p {
   width: 80%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
   grid-column-gap: 100px;
   grid-row-gap: 0px;
 }

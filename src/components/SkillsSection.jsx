@@ -4,8 +4,13 @@ import { useState } from "react";
 import CVdata from "../Data/CVdata";
 import DeleteBtn from "./deleteBtn";
 
-
-function SkillsSection({ skills, handleChange, handleColapseForm, handleDelete }) {
+function SkillsSection({
+  skills,
+  handleChange,
+  handleColapseForm,
+  handleDelete,
+  handleAdd,
+}) {
   const activeRotation = "rotate(180deg)";
   const inActiveRotation = "rotate(0deg)";
   const activeDisplay = "block";
@@ -105,7 +110,11 @@ function SkillsSection({ skills, handleChange, handleColapseForm, handleDelete }
                       value={skillItem.skill}
                     ></input>
                   </form>
-                  <DeleteBtn section={skills} handleDelete={handleDelete}  index={skillItem.id}></DeleteBtn>
+                  <DeleteBtn
+                    section={skills}
+                    handleDelete={handleDelete}
+                    index={skillItem.id}
+                  ></DeleteBtn>
                 </div>
               </li>
             );
@@ -113,7 +122,7 @@ function SkillsSection({ skills, handleChange, handleColapseForm, handleDelete }
 
           <hr className="Seperator"></hr>
 
-          <button className="addSkills">
+          <button onClick={(e) => handleAdd(skills)} className="addSkills">
             <img src="src/assets/plus-img.png"></img>
             <p>Skills</p>
           </button>

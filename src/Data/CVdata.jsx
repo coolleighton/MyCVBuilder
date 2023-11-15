@@ -11,11 +11,9 @@ let CVdata = {
     { isActivee: false, id: 0, skill: "Assembly Language" },
     { isActivee: false, id: 1, skill: "Plankalkül" },
     { isActivee: false, id: 2, skill: "Short Code" },
-    { isActivee: false, id: 3, skill: "HTML5, CSS3" },
-    { isActivee: false, id: 4, skill: "Javascript" },
-    { isActivee: false, id: 5, skill: "React" },
-    { isActivee: false, id: 6, skill: "Python" },
-    { isActivee: false, id: 7, skill: "Responsive Design" },
+    { isActivee: false, id: 3, skill: "Binary" },
+    { isActivee: false, id: 4, skill: "Artificial Intelligence" },
+    { isActivee: false, id: 5, skill: "Code Breaking" },
   ],
   education: [
     {
