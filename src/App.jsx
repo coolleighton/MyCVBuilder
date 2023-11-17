@@ -42,15 +42,10 @@ function App() {
   const [personalInfo, setPersonalInfo] = useState(CVdata.personalInfo);
 
   const handlePersonalChange = (value, field) => {
-    console.log(CVdata);
-    const fieldName = field;
-    const newCVdata = {
+    setPersonalInfo({
       ...personalInfo,
-      [fieldName]: (personalInfo[fieldName] = value),
-    };
-
-    setPersonalInfo(newCVdata);
-    console.log(CVdata);
+      [field]: value,
+    });
   };
 
   // handle skills information change //
@@ -185,7 +180,6 @@ function App() {
   // handle clear button click //
 
   const handleClear = () => {
-    console.log(CVdata);
     const newPersonalCVdata = {
       fullName: "",
       email: "",
@@ -201,7 +195,6 @@ function App() {
     setSkills(newSkillsCVdata);
     setEducationInfo(newEducationCVdata);
     setExperienceInfo(newExperienceCVdata);
-    console.log(CVdata);
   };
 
   // handle load example button click //
@@ -278,15 +271,15 @@ function App() {
   const [serifActive, setSerifActive] = useState(true);
   const [sansActive, setSansActive] = useState(false);
   const [monoActive, setMonoActive] = useState(false);
-  const [fontFamily, setFontFamily] = useState("'IBM Plex Serif', serif");
+  const [fontFamily, setFontFamily] = useState({fontFamily: "'Open Sans', sans-serif"});
 
   const handleClickSerif = () => {
     if (!serifActive) {
       setSerifActive(true);
       setSansActive(false);
       setMonoActive(false);
-      setFontFamily("fontFamily: 'IBM Plex Serif', serif;");
-      console.log("fontFamily: 'IBM Plex Serif', serif;");
+      setFontFamily(`{fontFamily: 'IBM Plex Serif', serif}`);
+      console.log(fontFamily);
     }
   };
 
@@ -295,8 +288,8 @@ function App() {
       setSerifActive(false);
       setSansActive(true);
       setMonoActive(false);
-      setFontFamily("fontFamily: 'Open Sans', sans-serif;");
-      console.log("fontFamily: 'Open Sans', sans-serif;");
+      setFontFamily({fontFamily: "'Open Sans', sans-serif"});
+      console.log(fontFamily);
     }
   };
 
@@ -305,8 +298,8 @@ function App() {
       setSerifActive(false);
       setSansActive(false);
       setMonoActive(true);
-      setFontFamily("fontFamily: 'Roboto Mono', monospace;");
-      console.log("fontFamily: 'Roboto Mono', monospace;");
+      setFontFamily({fontFamily: "'Roboto Mono', monospace"});
+      console.log(fontFamily);
     }
   };
 
