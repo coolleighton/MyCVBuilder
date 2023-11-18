@@ -7,13 +7,57 @@ function CVPreview({
   education,
   experience,
   fontFamily,
+  layout,
 }) {
+  const CVPreviewClass = () => {
+    if (layout === "top") {
+      let styles = {
+        flexDirection: "column",
+      };
+      return styles;
+    } else if (layout === "left") {
+      let styles = {
+        flexDirection: "row",
+      };
+      return styles;
+    } else if (layout === "right") {
+      let styles = {
+        flexDirection: "row-reverse",
+      };
+      return styles;
+    }
+  };
+
+  const headerRowClass = () => {
+    if (layout === "top") {
+      let styles = {
+        flexDirection: "row",
+      };
+      return styles;
+    } else if (layout === "left") {
+      let styles = {
+        flexDirection: "column",
+      };
+      return styles;
+    } else if (layout === "right") {
+      let styles = {
+        flexDirection: "column",
+      };
+      return styles;
+    }
+  };
+
   return (
     <>
-      <div className="CVPreview" key={1}>
+      <div
+        id="CVPreview"
+        className="CVPreview"
+        key={1}
+        style={CVPreviewClass()}
+      >
         <div className="header">
           <h1 style={fontFamily}>{personalInfo.fullName}</h1>
-          <div>
+          <div id="headerRow" className="headerRow" style={headerRowClass()}>
             <div>
               <img src="src/assets/email-white-img.png"></img>
               <p>{personalInfo.email}</p>
@@ -81,9 +125,13 @@ function CVPreview({
                         {experienceItem.startDate}
                       </p>
                       <p> - </p>
-                      <p key={experienceItem.endDate}>{experienceItem.endDate}</p>
+                      <p key={experienceItem.endDate}>
+                        {experienceItem.endDate}
+                      </p>
                     </div>
-                    <p key={experienceItem.position}>{experienceItem.position}</p>
+                    <p key={experienceItem.position}>
+                      {experienceItem.position}
+                    </p>
                   </div>
                   <div className="infoRight">
                     <p className="bold" key={experienceItem.company}>

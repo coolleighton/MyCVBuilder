@@ -69,7 +69,6 @@ function App() {
   // Handle skills active click //
 
   const handleSkillsColapseForm = (e) => {
-    console.log(e.target.id);
     let index = skills.findIndex((x) => x.id === +e.target.id);
 
     if (skills[index].isActivee) {
@@ -200,7 +199,6 @@ function App() {
   // handle load example button click //
 
   const handleLoad = () => {
-    console.log(CVdata);
     setPersonalInfo(CVdata.personalInfo);
     setSkills(CVdata.skills);
     setEducationInfo(CVdata.education);
@@ -265,6 +263,15 @@ function App() {
       setExperienceInfo(newCVdata);
     }
   };
+
+  // handle layout click // 
+
+  const [CVlayout, setCVLayout] = useState("top");
+
+  const handleLayoutClick = (type) => {
+    setCVLayout(type)
+    
+  }
 
   // handle font clicks //
 
@@ -368,7 +375,9 @@ function App() {
         <RenderSaveLoadClearButtons
           handleClear={handleClear}
         ></RenderSaveLoadClearButtons>
-        <CustomizeLayout></CustomizeLayout>
+        <CustomizeLayout
+          handleLayoutClick={handleLayoutClick} 
+        ></CustomizeLayout>
         <CustomizeColors></CustomizeColors>
         <CustomiseFont
           serifActive={serifActive}
@@ -385,6 +394,7 @@ function App() {
           personalInfo={personalInfo}
           education={educationInfo}
           experience={experienceInfo}
+          layout={CVlayout}
           font={fontFamily}
         ></CVPreview>
       </div>

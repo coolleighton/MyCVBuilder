@@ -2,6 +2,7 @@
   min-height: 1000px;
   max-width: 700px;
   background-color: white;
+  display: flex;
 }
 
 p {
@@ -16,20 +17,23 @@ p {
   padding: 10px;
 }
 
-.header div {
+.headerRow {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 }
 
-.header div img {
+.headerRow img {
   width: 20px;
+  height: 20px;
   padding-right: 10px;
 }
 
-.header div div {
+.headerRow div {
   padding: 10px 20px;
+  display: flex;
+  justify-content: center;
 }
 
 .header p,

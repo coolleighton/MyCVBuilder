@@ -1,26 +1,26 @@
 import styles from "../styles/CustomizeLayout.css";
 
-function CustomizeLayout() {
+function CustomizeLayout({handleLayoutClick}) {
   return (
     <>
       <div className="customizeLayout">
         <h1>Layout</h1>
         <div className="layoutsDiv">
-          <div className="layoutCont">
+          <div onClick={(e) => handleLayoutClick("top")} className="layoutCont">
             <div className="topLayout palette">
               <div className="topDivColor"></div>
               <div></div>
             </div>
             <p>top</p>
           </div>
-          <div className="layoutCont">
+          <div onClick={(e) => handleLayoutClick("left")} className="layoutCont">
             <div className="leftLayout palette">
               <div className="leftDivColor"></div>
               <div></div>
             </div>
             <p>left</p>
           </div>
-          <div className="layoutCont">
+          <div onClick={(e) => handleLayoutClick("right")} className="layoutCont">
             <div className="rightLayout palette">
               <div className="whiteDivColor"></div>
               <div className="rightDivColor"></div>
