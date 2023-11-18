@@ -8,7 +8,32 @@ function CVPreview({
   experience,
   fontFamily,
   layout,
+  colour,
+  colourMode
 }) {
+
+  const CVColours = () => {
+    let colours = {
+      color: colour,
+      backgroundColor: colourMode[1]
+    }
+    return colours
+  }
+
+  const CVHeaderColours = () => {
+    let colours = {
+      backgroundColor: colour
+    }
+    return colours
+  }
+
+  const CVHeaderTextColour = () => {
+    let colours = {
+      color: colourMode[0]
+    }
+    return colours
+  }
+
   const CVPreviewClass = () => {
     if (layout === "top") {
       let styles = {
@@ -55,32 +80,32 @@ function CVPreview({
         key={1}
         style={CVPreviewClass()}
       >
-        <div className="header">
-          <h1 style={fontFamily}>{personalInfo.fullName}</h1>
+        <div style={CVHeaderColours()} className="header">
+          <h1 style={CVHeaderTextColour()}>{personalInfo.fullName}</h1>
           <div id="headerRow" className="headerRow" style={headerRowClass()}>
             <div>
-              <img src="src/assets/email-white-img.png"></img>
-              <p>{personalInfo.email}</p>
+              <img src={colourMode[2]}></img>
+              <p style={CVHeaderTextColour()}>{personalInfo.email}</p>
             </div>
             <div>
-              <img src="src/assets/phone-white-img.png"></img>
-              <p>{personalInfo.phoneNumber}</p>
+              <img src={colourMode[4]}></img>
+              <p style={CVHeaderTextColour()}>{personalInfo.phoneNumber}</p>
             </div>
             <div>
-              <img src="src/assets/location-white-img.png"></img>
-              <p>{personalInfo.homeAddress}</p>
+              <img src={colourMode[3]}></img>
+              <p style={CVHeaderTextColour()}>{personalInfo.homeAddress}</p>
             </div>
           </div>
         </div>
 
         <div>
           <div className="profile">
-            <h2>Profile</h2>
+            <h2 style={CVColours()}>Profile</h2>
             <p>{personalInfo.personalDescription}</p>
           </div>
 
           <div className="skills">
-            <h2>Skills</h2>
+            <h2 style={CVColours()}>Skills</h2>
             <ul>
               {skills.map((skillItem) => {
                 return <li key={skillItem.id}>{skillItem.skill}</li>;
@@ -89,7 +114,7 @@ function CVPreview({
           </div>
 
           <div className="education">
-            <h2>Education</h2>
+            <h2 style={CVColours()}>Education</h2>
             {education.map((educationItem) => {
               return (
                 <div key={educationItem.id} className="educationItem">
@@ -115,7 +140,7 @@ function CVPreview({
           </div>
 
           <div className="experience">
-            <h2>Experience</h2>
+            <h2 style={CVColours()}>Experience</h2>
             {experience.map((experienceItem) => {
               return (
                 <div key={experienceItem.id} className="experienceItem">

@@ -35,8 +35,6 @@ function App() {
     }
   };
 
-  //
-
   // handles profile information change //
 
   const [personalInfo, setPersonalInfo] = useState(CVdata.personalInfo);
@@ -264,21 +262,115 @@ function App() {
     }
   };
 
-  // handle layout click // 
+  // handle layout click //
 
   const [CVlayout, setCVLayout] = useState("top");
 
   const handleLayoutClick = (type) => {
-    setCVLayout(type)
-    
+    setCVLayout(type);
+  };
+
+  // handle colour change //
+
+  // converts hex to hsl code //
+  function hexToHsl(hex) {
+    hex = hex.replace(/^#/, "");
+
+    let bigint = parseInt(hex, 16);
+    let r = (bigint >> 16) & 255;
+    let g = (bigint >> 8) & 255;
+    let b = bigint & 255;
+
+    r /= 255;
+    g /= 255;
+    b /= 255;
+
+    let max = Math.max(r, g, b);
+    let min = Math.min(r, g, b);
+
+    let lightness = (max + min) / 2;
+
+    let saturation = 0;
+    if (max !== min) {
+      saturation =
+        lightness <= 0.5
+          ? (max - min) / (max + min)
+          : (max - min) / (2.0 - max - min);
+    }
+
+    let hue = 0;
+    if (max !== min) {
+      if (max === r) {
+        hue = (g - b) / (max - min);
+      } else if (max === g) {
+        hue = 2.0 + (b - r) / (max - min);
+      } else {
+        hue = 4.0 + (r - g) / (max - min);
+      }
+    }
+
+    hue *= 60;
+    if (hue < 0) {
+      hue += 360;
+    }
+
+    hue = Math.round(hue * 100) / 100;
+    saturation = Math.round(saturation * 100) / 100;
+    lightness = Math.round(lightness * 100) / 100;
+
+    return [hue, saturation * 100, lightness * 100];
   }
+
+  // check if light of hsl is above 50% //
+
+  const [colourMode, setColourMode] = useState([
+    "white",
+    "#EEF1F2",
+    "src/assets/email-white-img.png",
+    "src/assets/location-white-img.png",
+    "src/assets/phone-white-img.png",
+  ]);
+
+  function isColorBelow50PercentLight(hslColor) {
+    const lightness = hslColor[2];
+
+    if (lightness < 50) {
+      setColourMode([
+        "white",
+        "#EEF1F2",
+        "src/assets/email-white-img.png",
+        "src/assets/location-white-img.png",
+        "src/assets/phone-white-img.png",
+      ]);
+    } else if (lightness > 49) {
+      setColourMode([
+        "#000000",
+        "#000000",
+        "src/assets/email-black-img.png",
+        "src/assets/location-black-img.png",
+        "src/assets/phone-black-img.png",
+      ]);
+    }
+  }
+
+  // set CV colours //
+
+  const [colour, setColour] = useState("#0E374E");
+
+  const handleColourChange = (value) => {
+    const hslValue = hexToHsl(value);
+    isColorBelow50PercentLight(hslValue);
+    setColour(value);
+  };
 
   // handle font clicks //
 
   const [serifActive, setSerifActive] = useState(true);
   const [sansActive, setSansActive] = useState(false);
   const [monoActive, setMonoActive] = useState(false);
-  const [fontFamily, setFontFamily] = useState({fontFamily: "'Open Sans', sans-serif"});
+  const [fontFamily, setFontFamily] = useState({
+    fontFamily: "'Open Sans', sans-serif",
+  });
 
   const handleClickSerif = () => {
     if (!serifActive) {
@@ -295,7 +387,7 @@ function App() {
       setSerifActive(false);
       setSansActive(true);
       setMonoActive(false);
-      setFontFamily({fontFamily: "'Open Sans', sans-serif"});
+      setFontFamily({ fontFamily: "'Open Sans', sans-serif" });
       console.log(fontFamily);
     }
   };
@@ -305,7 +397,7 @@ function App() {
       setSerifActive(false);
       setSansActive(false);
       setMonoActive(true);
-      setFontFamily({fontFamily: "'Roboto Mono', monospace"});
+      setFontFamily({ fontFamily: "'Roboto Mono', monospace" });
       console.log(fontFamily);
     }
   };
@@ -376,9 +468,13 @@ function App() {
           handleClear={handleClear}
         ></RenderSaveLoadClearButtons>
         <CustomizeLayout
-          handleLayoutClick={handleLayoutClick} 
+
+          colour={colour}
+          handleLayoutClick={handleLayoutClick}
         ></CustomizeLayout>
-        <CustomizeColors></CustomizeColors>
+        <CustomizeColors
+          handleColourChange={handleColourChange}
+        ></CustomizeColors>
         <CustomiseFont
           serifActive={serifActive}
           sansActive={sansActive}
@@ -386,6 +482,8 @@ function App() {
           handleClickMono={handleClickMono}
           handleClickSans={handleClickSans}
           handleClickSerif={handleClickSerif}
+          colour={colour}
+          colourMode={colourMode}
         ></CustomiseFont>
       </div>
       <div>
@@ -396,6 +494,8 @@ function App() {
           experience={experienceInfo}
           layout={CVlayout}
           font={fontFamily}
+          colour={colour}
+          colourMode={colourMode}
         ></CVPreview>
       </div>
     </div>
@@ -403,5 +503,3 @@ function App() {
 }
 
 export default App;
-
-// "<SkillsSection handleChange={handleSkillsChange}></SkillsSection>"

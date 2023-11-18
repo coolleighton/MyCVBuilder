@@ -8,10 +8,12 @@ function CustomiseFont({
   sansActive,
   monoActive,
   serifActive,
+  colour,
+  colourMode,
 }) {
   const whiteColor = "white";
   const blackColor = "black";
-  const blueColor = "#0E374E";
+  const blueColor = colour;
 
   return (
     <>
