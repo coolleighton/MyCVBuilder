@@ -10,6 +10,7 @@ import CustomizeColors from "./components/CustomiseColors";
 import CustomiseFont from "./components/CustomiseFont";
 import CVPreview from "./components/CVPreview";
 import CVdata from "./Data/CVdata";
+import contentImg from "./assets/content-img.png"
 import emailBlack from "./assets/email-black-img.png"
 import emailWhite from "./assets/email-white-img.png"
 
@@ -451,7 +452,7 @@ function App() {
           }}
           onClick={handleContentClick}
         >
-          <img src="./src/assets/content-img.png"></img>
+          <img src={contentImg}></img>
           <p>Content</p>
         </button>
         <button
