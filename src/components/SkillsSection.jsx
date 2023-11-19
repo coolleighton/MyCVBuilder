@@ -3,6 +3,8 @@ import { v4 as uuidv4 } from "uuid";
 import { useState } from "react";
 import CVdata from "../Data/CVdata";
 import DeleteBtn from "./deleteBtn";
+import downImg from "../assets/down-img.png"
+import skillsImg from "../assets/skills-img.png"
 
 function SkillsSection({
   skills,
@@ -31,7 +33,7 @@ function SkillsSection({
       <div className="SkillsSection">
         <div onClick={handleHeaderClick} className="SkillsHeader">
           <div className="HeaderTitle">
-            <img src="./src/assets/skills-img.png"></img>
+            <img src={skillsImg}></img>
             <h1>Skills</h1>
           </div>
           <img
@@ -39,7 +41,7 @@ function SkillsSection({
               transform: SkillsActive ? activeRotation : inActiveRotation,
             }}
             className="DropDownImg"
-            src="./src/assets/down-img.png"
+            src={downImg}
           ></img>
         </div>
         <ul
@@ -92,7 +94,7 @@ function SkillsSection({
                   <img
                     id={skillItem.id}
                     className="skillListItemImg"
-                    src="src/assets/down-img.png"
+                    src={downImg}
                     style={buttonRotation()}
                   ></img>
                 </div>

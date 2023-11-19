@@ -3,6 +3,8 @@ import { v4 as uuidv4 } from "uuid";
 import { useState } from "react";
 import CVdata from "../Data/CVdata";
 import DeleteBtn from "./deleteBtn";
+import downImg from "../assets/down-img.png"
+import experienceImg from "../assets/experience-img.png"
 
 function ExperienceSection({
   experience,
@@ -31,7 +33,7 @@ function ExperienceSection({
       <div className="ExperienceSection">
         <div onClick={handleHeaderClick} className="ExperienceHeader">
           <div className="HeaderTitle">
-            <img src="./src/assets/experience-img.png"></img>
+            <img src={experienceImg}></img>
             <h1>Experience</h1>
           </div>
           <img
@@ -39,7 +41,7 @@ function ExperienceSection({
               transform: ExperienceActive ? activeRotation : inActiveRotation,
             }}
             className="DropDownImg"
-            src="./src/assets/down-img.png"
+            src={downImg}
           ></img>
         </div>
 
@@ -93,7 +95,7 @@ function ExperienceSection({
                   <img
                     id={experienceItem.id}
                     className="JobListItemImg"
-                    src="src/assets/down-img.png"
+                    src={downImg}
                     style={buttonRotation()}
                   ></img>
                 </div>

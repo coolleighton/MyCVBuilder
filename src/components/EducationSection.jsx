@@ -3,6 +3,8 @@ import DeleteBtn from "./deleteBtn";
 import { v4 as uuidv4 } from "uuid";
 import { useState } from "react";
 import CVdata from "../Data/CVdata";
+import educationImage from "../assets/education-img.png"
+import downImg from "../assets/down-img.png"
 
 function EducationSection({
   education,
@@ -31,7 +33,7 @@ function EducationSection({
       <div className="EducationSection">
         <div onClick={handleHeaderClick} className="EducationHeader">
           <div className="HeaderTitle">
-            <img src="./src/assets/education-img.png"></img>
+            <img src={educationImage}></img>
             <h1>Education</h1>
           </div>
           <img
@@ -39,7 +41,7 @@ function EducationSection({
               transform: EducationActive ? activeRotation : inActiveRotation,
             }}
             className="DropDownImg"
-            src="./src/assets/down-img.png"
+            src={downImg}
           ></img>
         </div>
 
@@ -91,7 +93,7 @@ function EducationSection({
                   <img
                     id={educationItem.id}
                     className="UniversityListItemImg"
-                    src="src/assets/down-img.png"
+                    src={downImg}
                     style={buttonRotation()}
                   ></img>
                 </div>

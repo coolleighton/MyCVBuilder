@@ -11,41 +11,13 @@ import CustomiseFont from "./components/CustomiseFont";
 import CVPreview from "./components/CVPreview";
 import CVdata from "./Data/CVdata";
 import contentImg from "./assets/content-img.png"
+import customImg from "./assets/customise-img.png"
 import emailBlack from "./assets/email-black-img.png"
 import emailWhite from "./assets/email-white-img.png"
-
-
-/*const [colourMode, setColourMode] = useState([
-  "white",
-  "#EEF1F2",
-  "src/assets/email-white-img.png",
-  "src/assets/location-white-img.png",
-  "src/assets/phone-white-img.png",
-]);
-
-function isColorBelow50PercentLight(hslColor) {
-  const lightness = hslColor[2];
-
-  if (lightness < 50) {
-    setColourMode([
-      "white",
-      "#EEF1F2",
-      "src/assets/email-white-img.png",
-      "src/assets/location-white-img.png",
-      "src/assets/phone-white-img.png",
-    ]);
-  } else if (lightness > 49) {
-    setColourMode([
-      "#000000",
-      "#000000",
-      "src/assets/email-black-img.png",
-      "src/assets/location-black-img.png",
-      "src/assets/phone-black-img.png",
-    ]);
-  }
-}
-*/
-
+import locationBlack from "./assets/location-black-img.png"
+import locationWhite from "./assets/location-white-img.png"
+import phoneBlack from "./assets/phone-black-img.png"
+import phoneWhite from "./assets/phone-white-img.png"
 
 function App() {
   // handles the content/customisation button click //
@@ -346,8 +318,8 @@ function App() {
     "white",
     "#EEF1F2",
     emailWhite,
-    "src/assets/location-white-img.png",
-    "src/assets/phone-white-img.png",
+    locationWhite,
+    phoneWhite,
   ]);
 
   function isColorBelow50PercentLight(hslColor) {
@@ -358,16 +330,16 @@ function App() {
         "white",
         "#EEF1F2",
         emailWhite,
-        "src/assets/location-white-img.png",
-        "src/assets/phone-white-img.png",
+        locationWhite,
+        phoneWhite,
       ]);
     } else if (lightness > 49) {
       setColourMode([
         "#000000",
         "#000000",
         emailBlack,
-        "src/assets/location-black-img.png",
-        "src/assets/phone-black-img.png",
+        locationBlack,
+        phoneBlack,
       ]);
     }
   }
@@ -461,7 +433,7 @@ function App() {
           }}
           onClick={handleCustomiseClick}
         >
-          <img src="./src/assets/customise-img.png"></img>
+          <img src={customImg}></img>
           <p>Customize</p>
         </button>
       </div>
