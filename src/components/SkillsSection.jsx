@@ -3,8 +3,8 @@ import { v4 as uuidv4 } from "uuid";
 import { useState } from "react";
 import CVdata from "../Data/CVdata";
 import DeleteBtn from "./deleteBtn";
-import downImg from "../assets/down-img.png"
-import skillsImg from "../assets/skills-img.png"
+import downImg from "../assets/down-img.png";
+import skillsImg from "../assets/skills-img.png";
 
 function SkillsSection({
   skills,

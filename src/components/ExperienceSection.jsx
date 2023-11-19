@@ -3,8 +3,8 @@ import { v4 as uuidv4 } from "uuid";
 import { useState } from "react";
 import CVdata from "../Data/CVdata";
 import DeleteBtn from "./deleteBtn";
-import downImg from "../assets/down-img.png"
-import experienceImg from "../assets/experience-img.png"
+import downImg from "../assets/down-img.png";
+import experienceImg from "../assets/experience-img.png";
 
 function ExperienceSection({
   experience,

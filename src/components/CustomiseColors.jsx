@@ -1,6 +1,6 @@
 import styles from "../styles/CustomiseColors.css";
 
-function CustomizeColors({handleColourChange}) {
+function CustomizeColors({ handleColourChange }) {
   return (
     <>
       <div className="customizeColors">

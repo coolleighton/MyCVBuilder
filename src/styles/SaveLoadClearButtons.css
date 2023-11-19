@@ -1,11 +1,12 @@
 .SaveLoadClearButtons {
   background-color: white;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   border-radius: 10px;
   padding: 15px 30px;
-  box-shadow: 0px 5px 50px -11px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 5px 30px -10px rgba(0, 0, 0, 0.2);
 }
 
 .SaveLoadClearButtons button {
@@ -17,6 +18,7 @@
   padding: 5px;
   border-radius: 5px;
   cursor: pointer;
+  width: 48%;
 }
 
 .SaveLoadClearButtons button:hover {
@@ -26,7 +28,7 @@
 
 .SaveLoadClearButtons img {
   width: 20px;
-  margin-right: 10px;
+  margin-right: 3px;
 }
 
 .SaveLoadClearButtons p {
@@ -34,13 +36,16 @@
   font-weight: 600;
   font-size: 15px;
   margin: 0;
+  white-space: nowrap;
 }
 
-.clear {
+.SaveLoadClearButtons .clear {
   color: #b91c1c;
 }
 
 .SaveLoadClearButtons .load {
   background-color: rgb(235, 235, 235);
-  padding: 5px 30px;
+  padding: 5px 30px 5px;
+  width: 100%;
+  margin-bottom: 15px;
 }
