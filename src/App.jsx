@@ -10,7 +10,9 @@ import CustomizeColors from "./components/CustomiseColors";
 import CustomiseFont from "./components/CustomiseFont";
 import CVPreview from "./components/CVPreview";
 import CVdata from "./Data/CVdata";
+import { jsPDF } from "jspdf";
 import { v4 as uuidv4 } from "uuid";
+import html2canvas from "html2canvas";
 
 function App() {
   // handles the content/customisation button click //
@@ -33,6 +35,45 @@ function App() {
       setContentActive(false);
       setCustomiseActive(true);
     }
+  };
+
+  // handle clear button click //
+
+  const handleClear = () => {
+    const newPersonalCVdata = {
+      fullName: "",
+      email: "",
+      phoneNumber: "",
+      homeAddress: "",
+      personalDescription: "",
+    };
+    const newSkillsCVdata = [];
+    const newEducationCVdata = [];
+    const newExperienceCVdata = [];
+
+    setPersonalInfo(newPersonalCVdata);
+    setSkills(newSkillsCVdata);
+    setEducationInfo(newEducationCVdata);
+    setExperienceInfo(newExperienceCVdata);
+  };
+
+  // handle load example button click //
+
+  const handleLoad = () => {
+    console.log(CVdata);
+    setPersonalInfo(CVdata.personalInfo);
+    setSkills(CVdata.skills);
+    setEducationInfo(CVdata.education);
+    setExperienceInfo(CVdata.experience);
+  };
+
+  // handle save as PDF //
+
+  const handleSave = () => {
+    const CV = document.querySelector("#CVPreview");
+    alert("In order for your CV/Resume to save correctly, follow these steps: On the next page click 'More Settings', uncheck 'Headers and Footers,' and make sure 'Background Graphics' is checked.")
+    print(CV)
+
   };
 
   // handles profile information change //
@@ -174,33 +215,138 @@ function App() {
     setExperienceInfo(newCVdata);
   };
 
-  // handle clear button click //
+  // handle layout click //
 
-  const handleClear = () => {
-    const newPersonalCVdata = {
-      fullName: "",
-      email: "",
-      phoneNumber: "",
-      homeAddress: "",
-      personalDescription: "",
-    };
-    const newSkillsCVdata = [];
-    const newEducationCVdata = [];
-    const newExperienceCVdata = [];
+  const [CVlayout, setCVLayout] = useState("top");
 
-    setPersonalInfo(newPersonalCVdata);
-    setSkills(newSkillsCVdata);
-    setEducationInfo(newEducationCVdata);
-    setExperienceInfo(newExperienceCVdata);
+  const handleLayoutClick = (type) => {
+    setCVLayout(type);
   };
 
-  // handle load example button click //
+  // handle font clicks //
 
-  const handleLoad = () => {
-    setPersonalInfo(CVdata.personalInfo);
-    setSkills(CVdata.skills);
-    setEducationInfo(CVdata.education);
-    setExperienceInfo(CVdata.experience);
+  const [serifActive, setSerifActive] = useState(false);
+  const [sansActive, setSansActive] = useState(true);
+  const [monoActive, setMonoActive] = useState(false);
+  const [FontFamily, setFontFamily] = useState("'Open Sans', sans-serif");
+
+  const handleClickSerif = () => {
+    if (!serifActive) {
+      setSerifActive(true);
+      setSansActive(false);
+      setMonoActive(false);
+      setFontFamily("'IBM Plex Serif', serif");
+    }
+  };
+
+  const handleClickSans = () => {
+    if (!sansActive) {
+      setSerifActive(false);
+      setSansActive(true);
+      setMonoActive(false);
+      setFontFamily("'Open Sans', sans-serif");
+    }
+  };
+
+  const handleClickMono = () => {
+    if (!monoActive) {
+      setSerifActive(false);
+      setSansActive(false);
+      setMonoActive(true);
+      setFontFamily("'Roboto Mono', monospace");
+    }
+  };
+
+  // handle colour change //
+  // converts hex to hsl code //
+  function hexToHsl(hex) {
+    hex = hex.replace(/^#/, "");
+
+    let bigint = parseInt(hex, 16);
+    let r = (bigint >> 16) & 255;
+    let g = (bigint >> 8) & 255;
+    let b = bigint & 255;
+
+    r /= 255;
+    g /= 255;
+    b /= 255;
+
+    let max = Math.max(r, g, b);
+    let min = Math.min(r, g, b);
+
+    let lightness = (max + min) / 2;
+
+    let saturation = 0;
+    if (max !== min) {
+      saturation =
+        lightness <= 0.5
+          ? (max - min) / (max + min)
+          : (max - min) / (2.0 - max - min);
+    }
+
+    let hue = 0;
+    if (max !== min) {
+      if (max === r) {
+        hue = (g - b) / (max - min);
+      } else if (max === g) {
+        hue = 2.0 + (b - r) / (max - min);
+      } else {
+        hue = 4.0 + (r - g) / (max - min);
+      }
+    }
+
+    hue *= 60;
+    if (hue < 0) {
+      hue += 360;
+    }
+
+    hue = Math.round(hue * 100) / 100;
+    saturation = Math.round(saturation * 100) / 100;
+    lightness = Math.round(lightness * 100) / 100;
+
+    return [hue, saturation * 100, lightness * 100];
+  }
+
+  // check colours if light of hsl is above 50% //
+
+  const [colourMode, setColourMode] = useState([
+    "white",
+    "#EEF1F2",
+    "src/assets/email-white-img.png",
+    "src/assets/location-white-img.png",
+    "src/assets/phone-white-img.png",
+  ]);
+
+  function isColorBelow50PercentLight(hslColor) {
+    const lightness = hslColor[2];
+
+    if (lightness < 50) {
+      setColourMode([
+        "white",
+        "#EEF1F2",
+        "src/assets/email-white-img.png",
+        "src/assets/location-white-img.png",
+        "src/assets/phone-white-img.png",
+      ]);
+    } else if (lightness > 49) {
+      setColourMode([
+        "#000000",
+        "#000000",
+        "src/assets/email-black-img.png",
+        "src/assets/location-black-img.png",
+        "src/assets/phone-black-img.png",
+      ]);
+    }
+  }
+
+  // set CV colours //
+
+  const [colour, setColour] = useState("#0E374E");
+
+  const handleColourChange = (value) => {
+    const hslValue = hexToHsl(value);
+    isColorBelow50PercentLight(hslValue);
+    setColour(value);
   };
 
   // handle delete click //
@@ -262,140 +408,6 @@ function App() {
     }
   };
 
-  // handle layout click //
-
-  const [CVlayout, setCVLayout] = useState("top");
-
-  const handleLayoutClick = (type) => {
-    setCVLayout(type);
-  };
-
-  // handle colour change //
-  // converts hex to hsl code //
-  function hexToHsl(hex) {
-    hex = hex.replace(/^#/, "");
-
-    let bigint = parseInt(hex, 16);
-    let r = (bigint >> 16) & 255;
-    let g = (bigint >> 8) & 255;
-    let b = bigint & 255;
-
-    r /= 255;
-    g /= 255;
-    b /= 255;
-
-    let max = Math.max(r, g, b);
-    let min = Math.min(r, g, b);
-
-    let lightness = (max + min) / 2;
-
-    let saturation = 0;
-    if (max !== min) {
-      saturation =
-        lightness <= 0.5
-          ? (max - min) / (max + min)
-          : (max - min) / (2.0 - max - min);
-    }
-
-    let hue = 0;
-    if (max !== min) {
-      if (max === r) {
-        hue = (g - b) / (max - min);
-      } else if (max === g) {
-        hue = 2.0 + (b - r) / (max - min);
-      } else {
-        hue = 4.0 + (r - g) / (max - min);
-      }
-    }
-
-    hue *= 60;
-    if (hue < 0) {
-      hue += 360;
-    }
-
-    hue = Math.round(hue * 100) / 100;
-    saturation = Math.round(saturation * 100) / 100;
-    lightness = Math.round(lightness * 100) / 100;
-
-    return [hue, saturation * 100, lightness * 100];
-  }
-
-  // check if light of hsl is above 50% //
-
-  const [colourMode, setColourMode] = useState([
-    "white",
-    "#EEF1F2",
-    "src/assets/email-white-img.png",
-    "src/assets/location-white-img.png",
-    "src/assets/phone-white-img.png",
-  ]);
-
-  function isColorBelow50PercentLight(hslColor) {
-    const lightness = hslColor[2];
-
-    if (lightness < 50) {
-      setColourMode([
-        "white",
-        "#EEF1F2",
-        "src/assets/email-white-img.png",
-        "src/assets/location-white-img.png",
-        "src/assets/phone-white-img.png",
-      ]);
-    } else if (lightness > 49) {
-      setColourMode([
-        "#000000",
-        "#000000",
-        "src/assets/email-black-img.png",
-        "src/assets/location-black-img.png",
-        "src/assets/phone-black-img.png",
-      ]);
-    }
-  }
-
-  // set CV colours //
-
-  const [colour, setColour] = useState("#0E374E");
-
-  const handleColourChange = (value) => {
-    const hslValue = hexToHsl(value);
-    isColorBelow50PercentLight(hslValue);
-    setColour(value);
-  };
-
-  // handle font clicks //
-
-  const [serifActive, setSerifActive] = useState(false);
-  const [sansActive, setSansActive] = useState(true);
-  const [monoActive, setMonoActive] = useState(false);
-  const [FontFamily, setFontFamily] = useState("'Open Sans', sans-serif");
-
-  const handleClickSerif = () => {
-    if (!serifActive) {
-      setSerifActive(true);
-      setSansActive(false);
-      setMonoActive(false);
-      setFontFamily("'IBM Plex Serif', serif");
-    }
-  };
-
-  const handleClickSans = () => {
-    if (!sansActive) {
-      setSerifActive(false);
-      setSansActive(true);
-      setMonoActive(false);
-      setFontFamily("'Open Sans', sans-serif");
-    }
-  };
-
-  const handleClickMono = () => {
-    if (!monoActive) {
-      setSerifActive(false);
-      setSansActive(false);
-      setMonoActive(true);
-      setFontFamily("'Roboto Mono', monospace");
-    }
-  };
-
   // UI //
 
   return (
@@ -427,6 +439,7 @@ function App() {
         <RenderSaveLoadClearButtons
           handleClear={handleClear}
           handleLoad={handleLoad}
+          handleSave={handleSave}
         ></RenderSaveLoadClearButtons>
         <ContentSection
           personalInfo={personalInfo}
@@ -460,6 +473,8 @@ function App() {
       >
         <RenderSaveLoadClearButtons
           handleClear={handleClear}
+          handleLoad={handleLoad}
+          handleSave={handleSave}
         ></RenderSaveLoadClearButtons>
         <CustomizeLayout
           colour={colour}

@@ -1,6 +1,7 @@
 import styles from "../styles/SaveLoadClearButtons.css";
+import CVdata from "../Data/CVdata";
 
-function RenderSaveLoadClearButtons({ handleClear, handleLoad }) {
+function RenderSaveLoadClearButtons({ handleClear, handleLoad, handleSave }) {
   return (
     <div className="SaveLoadClearButtons">
       <button onClick={handleClear} className="clear">
@@ -10,7 +11,7 @@ function RenderSaveLoadClearButtons({ handleClear, handleLoad }) {
       <button onClick={handleLoad} className="load">
         <p>Load Example</p>
       </button>
-      <button className="download">
+      <button onClick={handleSave} className="download">
         <img src="./src/assets/download-img.png"></img>
         <p>Download CV</p>
       </button>

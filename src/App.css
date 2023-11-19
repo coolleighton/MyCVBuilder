@@ -2,9 +2,9 @@
   max-width: 80%;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: minmax(150px, 150px) minmax(300px, 500px) minmax(700px, 700px);
-  grid-column-gap: 20px;
-  grid-row-gap: 20px;
+  grid-template-columns: minmax(150px, 150px) minmax(300px, 500px) minmax(700px, 1200px);
+  grid-column-gap: 30px;
+  grid-row-gap: 30px;
   border: 2px solid transparent;
 }
 
