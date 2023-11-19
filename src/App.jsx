@@ -10,9 +10,41 @@ import CustomizeColors from "./components/CustomiseColors";
 import CustomiseFont from "./components/CustomiseFont";
 import CVPreview from "./components/CVPreview";
 import CVdata from "./Data/CVdata";
-import { jsPDF } from "jspdf";
-import { v4 as uuidv4 } from "uuid";
-import html2canvas from "html2canvas";
+import emailBlack from "./assets/email-black-img.png"
+import emailWhite from "./assets/email-white-img.png"
+
+
+/*const [colourMode, setColourMode] = useState([
+  "white",
+  "#EEF1F2",
+  "src/assets/email-white-img.png",
+  "src/assets/location-white-img.png",
+  "src/assets/phone-white-img.png",
+]);
+
+function isColorBelow50PercentLight(hslColor) {
+  const lightness = hslColor[2];
+
+  if (lightness < 50) {
+    setColourMode([
+      "white",
+      "#EEF1F2",
+      "src/assets/email-white-img.png",
+      "src/assets/location-white-img.png",
+      "src/assets/phone-white-img.png",
+    ]);
+  } else if (lightness > 49) {
+    setColourMode([
+      "#000000",
+      "#000000",
+      "src/assets/email-black-img.png",
+      "src/assets/location-black-img.png",
+      "src/assets/phone-black-img.png",
+    ]);
+  }
+}
+*/
+
 
 function App() {
   // handles the content/customisation button click //
@@ -312,7 +344,7 @@ function App() {
   const [colourMode, setColourMode] = useState([
     "white",
     "#EEF1F2",
-    "src/assets/email-white-img.png",
+    emailWhite,
     "src/assets/location-white-img.png",
     "src/assets/phone-white-img.png",
   ]);
@@ -324,7 +356,7 @@ function App() {
       setColourMode([
         "white",
         "#EEF1F2",
-        "src/assets/email-white-img.png",
+        emailWhite,
         "src/assets/location-white-img.png",
         "src/assets/phone-white-img.png",
       ]);
@@ -332,7 +364,7 @@ function App() {
       setColourMode([
         "#000000",
         "#000000",
-        "src/assets/email-black-img.png",
+        emailBlack,
         "src/assets/location-black-img.png",
         "src/assets/phone-black-img.png",
       ]);
