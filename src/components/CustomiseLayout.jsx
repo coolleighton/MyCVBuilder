@@ -1,6 +1,13 @@
 import styles from "../styles/CustomizeLayout.css";
 
 function CustomizeLayout({ handleLayoutClick, colour }) {
+  const Colours = () => {
+    let colours = {
+      backgroundColor: colour,
+    };
+    return colours;
+  };
+
   return (
     <>
       <div className="customizeLayout">
@@ -8,7 +15,7 @@ function CustomizeLayout({ handleLayoutClick, colour }) {
         <div className="layoutsDiv">
           <div onClick={(e) => handleLayoutClick("top")} className="layoutCont">
             <div className="topLayout palette">
-              <div className="topDivColor"></div>
+              <div style={Colours()} className="topDivColor"></div>
               <div></div>
             </div>
             <p>top</p>
@@ -18,7 +25,7 @@ function CustomizeLayout({ handleLayoutClick, colour }) {
             className="layoutCont"
           >
             <div className="leftLayout palette">
-              <div className="leftDivColor"></div>
+              <div style={Colours()} className="leftDivColor"></div>
               <div></div>
             </div>
             <p>left</p>
@@ -29,7 +36,7 @@ function CustomizeLayout({ handleLayoutClick, colour }) {
           >
             <div className="rightLayout palette">
               <div className="whiteDivColor"></div>
-              <div className="rightDivColor"></div>
+              <div style={Colours()} className="rightDivColor"></div>
             </div>
             <p>right</p>
           </div>

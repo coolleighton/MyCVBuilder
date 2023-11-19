@@ -6,35 +6,14 @@ function CVPreview({
   personalInfo,
   education,
   experience,
-  fontFamily,
+  font,
   layout,
   colour,
-  colourMode
+  colourMode,
 }) {
+  // Change layout
 
-  const CVColours = () => {
-    let colours = {
-      color: colour,
-      backgroundColor: colourMode[1]
-    }
-    return colours
-  }
-
-  const CVHeaderColours = () => {
-    let colours = {
-      backgroundColor: colour
-    }
-    return colours
-  }
-
-  const CVHeaderTextColour = () => {
-    let colours = {
-      color: colourMode[0]
-    }
-    return colours
-  }
-
-  const CVPreviewClass = () => {
+  const CVPreviewLayout = () => {
     if (layout === "top") {
       let styles = {
         flexDirection: "column",
@@ -53,7 +32,7 @@ function CVPreview({
     }
   };
 
-  const headerRowClass = () => {
+  const headerRowLayout = () => {
     if (layout === "top") {
       let styles = {
         flexDirection: "row",
@@ -72,17 +51,54 @@ function CVPreview({
     }
   };
 
+  // Change font
+
+  const elFontFamily = () => {
+    let fontfamily = {
+      fontFamily: font,
+    };
+    return fontfamily;
+  };
+
+  // Change colours + font
+
+  const CVColours = () => {
+    let colours = {
+      color: colour,
+      backgroundColor: colourMode[1],
+      fontFamily: font,
+    };
+    return colours;
+  };
+
+  const CVHeaderColours = () => {
+    let colours = {
+      backgroundColor: colour,
+    };
+    return colours;
+  };
+
+  const CVHeaderTextColour = () => {
+    let colours = {
+      color: colourMode[0],
+      fontFamily: font,
+    };
+    return colours;
+  };
+
+  // CV Preview
+
   return (
     <>
       <div
         id="CVPreview"
         className="CVPreview"
         key={1}
-        style={CVPreviewClass()}
+        style={CVPreviewLayout()}
       >
         <div style={CVHeaderColours()} className="header">
           <h1 style={CVHeaderTextColour()}>{personalInfo.fullName}</h1>
-          <div id="headerRow" className="headerRow" style={headerRowClass()}>
+          <div id="headerRow" className="headerRow" style={headerRowLayout()}>
             <div>
               <img src={colourMode[2]}></img>
               <p style={CVHeaderTextColour()}>{personalInfo.email}</p>
@@ -101,14 +117,18 @@ function CVPreview({
         <div>
           <div className="profile">
             <h2 style={CVColours()}>Profile</h2>
-            <p>{personalInfo.personalDescription}</p>
+            <p style={elFontFamily()}>{personalInfo.personalDescription}</p>
           </div>
 
           <div className="skills">
             <h2 style={CVColours()}>Skills</h2>
             <ul>
               {skills.map((skillItem) => {
-                return <li key={skillItem.id}>{skillItem.skill}</li>;
+                return (
+                  <li style={elFontFamily()} key={skillItem.id}>
+                    {skillItem.skill}
+                  </li>
+                );
               })}
             </ul>
           </div>
@@ -120,19 +140,29 @@ function CVPreview({
                 <div key={educationItem.id} className="educationItem">
                   <div className="infoLeft">
                     <div className="dates">
-                      <p key={educationItem.startDate}>
+                      <p style={elFontFamily()} key={educationItem.startDate}>
                         {educationItem.startDate}
                       </p>
-                      <p> - </p>
-                      <p key={educationItem.endDate}>{educationItem.endDate}</p>
+                      <p style={elFontFamily()}> - </p>
+                      <p style={elFontFamily()} key={educationItem.endDate}>
+                        {educationItem.endDate}
+                      </p>
                     </div>
-                    <p key={educationItem.location}>{educationItem.location}</p>
+                    <p style={elFontFamily()} key={educationItem.location}>
+                      {educationItem.location}
+                    </p>
                   </div>
                   <div className="infoRight">
-                    <p className="bold" key={educationItem.school}>
+                    <p
+                      style={elFontFamily()}
+                      className="bold"
+                      key={educationItem.school}
+                    >
                       {educationItem.school}
                     </p>
-                    <p key={educationItem.degree}>{educationItem.degree}</p>
+                    <p style={elFontFamily()} key={educationItem.degree}>
+                      {educationItem.degree}
+                    </p>
                   </div>
                 </div>
               );
@@ -146,23 +176,27 @@ function CVPreview({
                 <div key={experienceItem.id} className="experienceItem">
                   <div className="infoLeft">
                     <div className="dates">
-                      <p key={experienceItem.startDate}>
+                      <p style={elFontFamily()} key={experienceItem.startDate}>
                         {experienceItem.startDate}
                       </p>
-                      <p> - </p>
-                      <p key={experienceItem.endDate}>
+                      <p style={elFontFamily()}> - </p>
+                      <p style={elFontFamily()} key={experienceItem.endDate}>
                         {experienceItem.endDate}
                       </p>
                     </div>
-                    <p key={experienceItem.position}>
+                    <p style={elFontFamily()} key={experienceItem.position}>
                       {experienceItem.position}
                     </p>
                   </div>
                   <div className="infoRight">
-                    <p className="bold" key={experienceItem.company}>
+                    <p
+                      style={elFontFamily()}
+                      className="bold"
+                      key={experienceItem.company}
+                    >
                       {experienceItem.company}
                     </p>
-                    <p key={experienceItem.description}>
+                    <p style={elFontFamily()} key={experienceItem.description}>
                       {experienceItem.description}
                     </p>
                   </div>

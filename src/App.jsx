@@ -271,7 +271,6 @@ function App() {
   };
 
   // handle colour change //
-
   // converts hex to hsl code //
   function hexToHsl(hex) {
     hex = hex.replace(/^#/, "");
@@ -365,20 +364,17 @@ function App() {
 
   // handle font clicks //
 
-  const [serifActive, setSerifActive] = useState(true);
-  const [sansActive, setSansActive] = useState(false);
+  const [serifActive, setSerifActive] = useState(false);
+  const [sansActive, setSansActive] = useState(true);
   const [monoActive, setMonoActive] = useState(false);
-  const [fontFamily, setFontFamily] = useState({
-    fontFamily: "'Open Sans', sans-serif",
-  });
+  const [FontFamily, setFontFamily] = useState("'Open Sans', sans-serif");
 
   const handleClickSerif = () => {
     if (!serifActive) {
       setSerifActive(true);
       setSansActive(false);
       setMonoActive(false);
-      setFontFamily(`{fontFamily: 'IBM Plex Serif', serif}`);
-      console.log(fontFamily);
+      setFontFamily("'IBM Plex Serif', serif");
     }
   };
 
@@ -387,8 +383,7 @@ function App() {
       setSerifActive(false);
       setSansActive(true);
       setMonoActive(false);
-      setFontFamily({ fontFamily: "'Open Sans', sans-serif" });
-      console.log(fontFamily);
+      setFontFamily("'Open Sans', sans-serif");
     }
   };
 
@@ -397,8 +392,7 @@ function App() {
       setSerifActive(false);
       setSansActive(false);
       setMonoActive(true);
-      setFontFamily({ fontFamily: "'Roboto Mono', monospace" });
-      console.log(fontFamily);
+      setFontFamily("'Roboto Mono', monospace");
     }
   };
 
@@ -468,13 +462,9 @@ function App() {
           handleClear={handleClear}
         ></RenderSaveLoadClearButtons>
         <CustomizeLayout
-
           colour={colour}
           handleLayoutClick={handleLayoutClick}
         ></CustomizeLayout>
-        <CustomizeColors
-          handleColourChange={handleColourChange}
-        ></CustomizeColors>
         <CustomiseFont
           serifActive={serifActive}
           sansActive={sansActive}
@@ -485,6 +475,9 @@ function App() {
           colour={colour}
           colourMode={colourMode}
         ></CustomiseFont>
+        <CustomizeColors
+          handleColourChange={handleColourChange}
+        ></CustomizeColors>
       </div>
       <div>
         <CVPreview
@@ -493,7 +486,7 @@ function App() {
           education={educationInfo}
           experience={experienceInfo}
           layout={CVlayout}
-          font={fontFamily}
+          font={FontFamily}
           colour={colour}
           colourMode={colourMode}
         ></CVPreview>
