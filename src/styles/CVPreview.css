@@ -1,9 +1,15 @@
+.container {
+  padding: 50px;
+  background-color: white;
+  box-shadow: 0px 5px 30px -10px rgba(0, 0, 0, 0.2);
+}
+
 .CVPreview {
   min-height: 1000px;
   max-width: 1200px;
   background-color: white;
   display: flex;
-  box-shadow: 0px 5px 30px -10px rgba(0, 0, 0, 0.2);
+
 }
 
 p {
@@ -29,7 +35,7 @@ p {
 .headerRow img {
   width: 20px;
   height: 20px;
-  padding-right: 10px;
+  padding-right: 5px;
 }
 
 .headerRow div {
@@ -54,20 +60,13 @@ p {
 
 .profile,
 .education,
-.experience {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 30px 50px 20px;
-}
-
+.experience,
 .skills {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 30px 50px 0;
+  
 }
 
 .profile h2,
@@ -79,19 +78,33 @@ p {
   width: 100%;
   text-align: center;
   padding: 5px 0;
-  margin: 10px 0;
   font-size: 20px;
+  margin-block-start: 0;
+  margin-block-end: 0;
 }
+
+.profile h2 {
+  margin-top: 16px;
+}
+
+.experience h2 {
+  margin-top: 6px;
+}
+
+.education h2,
+.experience h2 {
+  margin-bottom: 6px;
+}
+
 .profile p {
-  margin: 10px;
+  margin: 16px 0;
   text-align: center;
 }
 
 .skills ul {
-  width: 80%;
+  width: 95%;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr) ;
   grid-column-gap: 100px;
   grid-row-gap: 0px;
 }
@@ -107,7 +120,7 @@ p {
 .infoLeft { 
   display: flex;
   flex-direction: column;
-  width: 140px;
+  width: 300px;
   padding-right: 30px;
 }
 
@@ -128,7 +141,7 @@ p {
 }
 
 .bold {
-  font-weight: 600;
+  font-weight: 700;
 }
 
 

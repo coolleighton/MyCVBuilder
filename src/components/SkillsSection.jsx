@@ -5,6 +5,7 @@ import CVdata from "../Data/CVdata";
 import DeleteBtn from "./deleteBtn";
 import downImg from "../assets/down-img.png";
 import skillsImg from "../assets/skills-img.png";
+import addImg from "../assets/plus-img.png"
 
 function SkillsSection({
   skills,
@@ -125,7 +126,7 @@ function SkillsSection({
           <hr className="Seperator"></hr>
 
           <button onClick={(e) => handleAdd(skills)} className="addSkills">
-            <img src="src/assets/plus-img.png"></img>
+            <img src={addImg}></img>
             <p>Skills</p>
           </button>
         </ul>

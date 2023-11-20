@@ -5,6 +5,7 @@ import CVdata from "../Data/CVdata";
 import DeleteBtn from "./deleteBtn";
 import downImg from "../assets/down-img.png";
 import experienceImg from "../assets/experience-img.png";
+import addImg from "../assets/plus-img.png"
 
 function ExperienceSection({
   experience,
@@ -210,7 +211,7 @@ function ExperienceSection({
             onClick={(e) => handleAdd(experience)}
             className="addExperience"
           >
-            <img src="src/assets/plus-img.png"></img>
+            <img src={addImg}></img>
             <p>Experience</p>
           </button>
         </ul>

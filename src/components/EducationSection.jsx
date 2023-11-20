@@ -5,6 +5,7 @@ import { useState } from "react";
 import CVdata from "../Data/CVdata";
 import educationImage from "../assets/education-img.png";
 import downImg from "../assets/down-img.png";
+import addImg from "../assets/plus-img.png"
 
 function EducationSection({
   education,
@@ -195,7 +196,7 @@ function EducationSection({
             onClick={(e) => handleAdd(education)}
             className="addEducation"
           >
-            <img src="src/assets/plus-img.png"></img>
+            <img src={addImg}></img>
             <p>Education</p>
           </button>
         </ul>
