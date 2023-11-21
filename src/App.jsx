@@ -22,6 +22,8 @@ import phoneWhite from "./assets/phone-white-img.png"
 function App() {
   // handles the content/customisation button click //
 
+  console.log("hi")
+
   const activeColor = "#F5F5F5";
   const inactiveColor = "white";
 
